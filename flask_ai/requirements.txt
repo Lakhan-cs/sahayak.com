@@ -1,0 +1,11 @@
+Flask>=3.0,<4
+pandas>=2.0
+numpy>=1.24
+scikit-learn>=1.3
+statsmodels>=0.14
+joblib>=1.3
+python-dotenv>=1.0
+pydantic>=2.0
+# Required for Gemini AI. Remove/comment only if you want local-ML fallback only.
+google-genai>=1.0
+gunicorn>=23,<24

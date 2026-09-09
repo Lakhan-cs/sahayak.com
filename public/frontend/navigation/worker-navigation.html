@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Sahayak - On the way</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/frontend/navigation/live-tracking.css" />
+    <link rel="stylesheet" href="/frontend/navigation/navigation-polish.css" />
+    <link rel="stylesheet" href="/frontend/navigation/chat.css" />
+  </head>
+  <body data-chat-role="worker">
+    <div class="tracking-shell">
+      <header class="tracking-top">
+        <div class="tracking-brand">
+          <span class="brand-mark"></span>Sahayak
+          <span class="tracking-context">Worker navigation</span>
+        </div>
+        <div class="tracking-title">
+          Navigate to customer <span class="live-pill"><i></i> Live</span>
+        </div>
+      </header>
+      <main class="tracking-main">
+        <div id="map" class="tracking-map"></div>
+        <div class="floating-status" id="status">Connecting to booking...</div>
+        <section class="tracking-card">
+          <span class="eyebrow">ACTIVE SERVICE</span>
+          <div class="worker-row">
+            <div class="avatar" id="customerAvatar">A</div>
+            <div>
+              <h2 id="customerName">Customer</h2>
+              <p id="customerAddress">Gurgaon service location</p>
+            </div>
+            <span class="rating" id="serviceName">SERVICE</span>
+          </div>
+          <div class="eta-box">
+            <div><span>ARRIVAL</span><strong id="eta">-</strong></div>
+            <div style="text-align: right">
+              <span>REMAINING</span
+              ><strong style="font-size: 18px" id="distance">-</strong>
+            </div>
+          </div>
+          <div class="next-turn">
+            <small>Next instruction</small
+            ><strong id="instruction">Preparing route...</strong>
+          </div>
+          <div class="tracking-actions">
+            <button class="secondary" id="simulate">Start 15 sec demo</button
+            ><button class="gold" id="arrived">I've arrived</button>
+          </div>
+        </section>
+        <div class="route-legend">
+          <span><b></b> Remaining</span
+          ><span><b class="done"></b> Travelled</span>
+        </div>
+      </main>
+    </div>
+    <button class="chat-launcher" id="chatLauncher">
+      <svg viewBox="0 0 24 24">
+        <path d="M5 5.5h14v10H9l-4 3v-13z" />
+        <path d="M8 9.5h8M8 12.5h5" /></svg
+      >Message customer
+    </button>
+    <section class="chat-panel" id="chatPanel" hidden>
+      <header class="chat-head">
+        <div>
+          <strong>Chat with customer</strong
+          ><small>Coordinate the service before arrival</small>
+        </div>
+        <button class="chat-close" id="chatClose" aria-label="Close chat">
+          &times;
+        </button>
+      </header>
+      <div class="chat-messages" id="chatMessages">
+        <div class="chat-empty">Connecting to chat...</div>
+      </div>
+      <div class="chat-typing" id="chatTyping"></div>
+      <div class="chat-error" id="chatError"></div>
+      <form class="chat-form" id="chatForm">
+        <input
+          id="chatInput"
+          autocomplete="off"
+          placeholder="Write a message..."
+        /><button type="submit">Send</button>
+      </form>
+    </section>
+    <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
+    <script src="/frontend/navigation/worker-navigation.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/frontend/navigation/chat.js"></script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+# Environment files and secrets
+.env
+.env.*
+!.env.example
+node_backend/.env
+flask_ai/.env
+
+# Dependencies
+node_modules/
+**/node_modules/
+__pycache__/
+**/__pycache__/
+*.py[cod]
+
+# Runtime files
+node_backend/uploads/
+*.log
+npm-debug.log*
+
+# Local OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Local virtual environments
+.venv/
+venv/
+env/

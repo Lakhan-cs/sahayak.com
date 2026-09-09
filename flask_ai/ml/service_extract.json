@@ -1,0 +1,13 @@
+{
+    "services": [
+        "Electrician",
+        "Plumber",
+        "Carpenter",
+        "Gardener",
+        "AC Repair",
+        "Appliance Repair",
+        "Painter",
+        "Cleaner",
+        "Other"
+    ]
+}

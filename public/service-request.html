@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Sahayak — Describe Your Service</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="flow.css" />
+  </head>
+  <body>
+    <header class="flow-header">
+      <a class="flow-brand" href="customer-home.html"
+        ><span class="flow-mark"></span>Sahayak</a
+      >
+      <a class="flow-back" href="javascript:history.back()">← Back</a>
+    </header>
+    <main class="flow-wrap">
+      <div class="flow-progress">
+        <div class="progress-step active">
+          <span class="progress-dot">1</span><span>Describe</span>
+        </div>
+        <div class="progress-line"></div>
+        <div class="progress-step">
+          <span class="progress-dot">2</span><span>Schedule</span>
+        </div>
+        <div class="progress-line"></div>
+        <div class="progress-step">
+          <span class="progress-dot">3</span><span>Match</span>
+        </div>
+        <div class="progress-line"></div>
+        <div class="progress-step">
+          <span class="progress-dot">4</span><span>Review</span>
+        </div>
+      </div>
+      <span class="eyebrow">Service request</span>
+      <h1 class="flow-title">Tell us what<br />needs to be fixed.</h1>
+      <p class="flow-subtitle">
+        A little detail helps Sahayak find the right local worker for your exact
+        problem.
+      </p>
+
+      <section class="flow-card">
+        <div class="field-label">
+          <label for="jobDescription">Describe the problem</label
+          ><span class="counter" id="counter">0 / 500</span>
+        </div>
+        <textarea
+          id="jobDescription"
+          maxlength="500"
+          placeholder="Example: My kitchen sink is leaking from underneath the cabinet. Water starts collecting on the floor whenever I use the tap."
+        ></textarea>
+
+        <div class="upload-zone">
+          <div class="upload-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 16V4" />
+              <path d="m7 9 5-5 5 5" />
+              <path d="M5 20h14" />
+            </svg>
+          </div>
+          <div class="upload-title">Add photos of the problem</div>
+          <div class="upload-help">Up to 5 images · JPG, PNG or WEBP</div>
+          <label class="upload-btn" for="imageInput">Choose images</label>
+          <input
+            id="imageInput"
+            type="file"
+            accept="image/png,image/jpeg,image/webp"
+            multiple
+          />
+        </div>
+        <div class="image-grid" id="imageGrid"></div>
+
+        <div class="request-summary">
+          <div class="summary-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M8 4v7a4 4 0 0 0 8 0V4" />
+              <path d="M6 4h4M14 4h4M12 15v6" />
+            </svg>
+          </div>
+          <div class="summary-text">
+            <strong id="serviceName">Selected service</strong
+            ><span
+              >Your request will be matched with suitable local workers.</span
+            >
+          </div>
+        </div>
+
+        <div class="flow-actions">
+          <button class="secondary-btn" onclick="history.back()">Back</button>
+          <button class="primary-btn" id="continueBtn">
+            Continue
+            <svg viewBox="0 0 24 24">
+              <path d="M5 12h14" />
+              <path d="m13 6 6 6-6 6" />
+            </svg>
+          </button>
+        </div>
+      </section>
+    </main>
+    <script src="service-request.js"></script>
+  </body>
+</html>

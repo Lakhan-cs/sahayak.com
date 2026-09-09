@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+
+    <title>Sahayak — Schedule Service</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="flow.css" />
+  </head>
+
+  <body>
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="flow-header">
+      <a class="flow-brand" href="customer-home.html">
+        <span class="flow-mark"></span>
+        Sahayak
+      </a>
+
+      <a class="flow-back" href="javascript:history.back()"> ← Back </a>
+    </header>
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="flow-wrap">
+      <!-- PROGRESS -->
+
+      <div class="flow-progress">
+        <div class="progress-step done">
+          <span class="progress-dot">✓</span>
+          <span>Describe</span>
+        </div>
+
+        <div class="progress-line"></div>
+
+        <div class="progress-step active">
+          <span class="progress-dot">2</span>
+          <span>Schedule</span>
+        </div>
+
+        <div class="progress-line"></div>
+
+        <div class="progress-step">
+          <span class="progress-dot">3</span>
+          <span>Match</span>
+        </div>
+
+        <div class="progress-line"></div>
+
+        <div class="progress-step">
+          <span class="progress-dot">4</span>
+          <span>Review</span>
+        </div>
+      </div>
+
+      <!-- PAGE INTRO -->
+
+      <span class="eyebrow"> When & where </span>
+
+      <h1 class="flow-title">
+        When should we<br />
+        send someone?
+      </h1>
+
+      <p class="flow-subtitle">
+        Choose an immediate visit or pick a date and time that works for you.
+      </p>
+
+      <!-- =================================================
+             SCHEDULE ART WRAPPER
+        ================================================== -->
+
+      <div class="schedule-art-wrap">
+        <!-- =================================================
+                 LEFT SERVICE ILLUSTRATION
+            ================================================== -->
+
+        <div class="service-art service-art-left" aria-hidden="true">
+          <svg viewBox="0 0 180 180">
+            <!-- Paint roller -->
+
+            <path d="M38 58h70c8 0 14 6 14 14v12H38z" />
+
+            <path d="M50 84v-12" />
+
+            <path d="M50 84h48" />
+
+            <path d="M98 84v18" />
+
+            <path d="M98 102h-8" />
+
+            <path d="M90 102v38" />
+
+            <path d="M82 140h16" />
+
+            <!-- Paint drops -->
+
+            <path d="M125 54v12" />
+
+            <path d="M125 72v5" />
+
+            <path d="M139 63v8" />
+
+            <!-- Paint strokes -->
+
+            <path d="M25 132c25-18 45-20 70-8" />
+
+            <path d="M30 145c20-12 38-13 58-7" />
+          </svg>
+        </div>
+
+        <!-- =================================================
+                 MAIN SCHEDULE CARD
+            ================================================== -->
+
+        <section class="flow-card schedule-main-card">
+          <!-- SERVICE TYPE -->
+
+          <div class="choice-grid">
+            <!-- ASAP -->
+
+            <button class="choice selected" id="asapChoice">
+              <div class="check">✓</div>
+
+              <div class="choice-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M13 2 5 13h6l-1 9 8-11h-6l1-9Z" />
+                </svg>
+              </div>
+
+              <h3>ASAP</h3>
+
+              <p>Find the best available worker near you right now.</p>
+            </button>
+
+            <!-- SCHEDULE LATER -->
+
+            <button class="choice" id="laterChoice">
+              <div class="check">✓</div>
+
+              <div class="choice-icon">
+                <svg viewBox="0 0 24 24">
+                  <rect x="3" y="5" width="18" height="16" rx="2" />
+
+                  <path d="M16 3v4M8 3v4M3 10h18" />
+                </svg>
+              </div>
+
+              <h3>Schedule later</h3>
+
+              <p>Choose a date and time in advance.</p>
+            </button>
+          </div>
+
+          <!-- =================================================
+                     SCHEDULE PANEL
+                ================================================== -->
+
+          <div class="schedule-panel" id="schedulePanel">
+            <div class="date-row">
+              <!-- DATE -->
+
+              <div>
+                <label class="input-label" for="date"> Select date </label>
+
+                <input id="date" type="date" />
+              </div>
+
+              <!-- TIME -->
+
+              <div>
+                <label class="input-label" for="timeSelect">
+                  Selected time
+                </label>
+
+                <select id="timeSelect">
+                  <option value="">Choose a time</option>
+
+                  <option>10:00 AM</option>
+
+                  <option>11:30 AM</option>
+
+                  <option>1:00 PM</option>
+
+                  <option>3:30 PM</option>
+
+                  <option>5:00 PM</option>
+
+                  <option>6:30 PM</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- AVAILABLE TIME SLOTS -->
+
+            <div style="margin-top: 18px">
+              <label class="input-label"> Available time slots </label>
+
+              <div class="time-grid" id="timeGrid"></div>
+            </div>
+          </div>
+
+          <!-- =================================================
+                     LOCATION
+                ================================================== -->
+
+          <div class="location-card">
+            <div class="location-top">
+              <!-- LOCATION ICON -->
+
+              <div class="location-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z" />
+
+                  <circle cx="12" cy="10" r="2.5" />
+                </svg>
+              </div>
+
+              <!-- LOCATION TEXT -->
+
+              <div>
+                <div class="location-name" id="locationName">
+                  Detecting your current location…
+                </div>
+
+                <div class="location-status" id="locationStatus">
+                  ● Current location
+                </div>
+              </div>
+
+              <!-- REFRESH LOCATION -->
+
+              <button class="location-change" id="changeLocation">
+                Refresh
+              </button>
+            </div>
+          </div>
+
+          <!-- =================================================
+                     REQUEST SUMMARY
+                ================================================== -->
+
+          <div class="request-summary">
+            <div class="summary-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 16h16" />
+
+                <path d="M6 16V8h12v8" />
+              </svg>
+            </div>
+
+            <div class="summary-text">
+              <strong id="serviceSummary"> Service </strong>
+
+              <span id="timingSummary"> ASAP · Best available worker </span>
+            </div>
+          </div>
+
+          <!-- =================================================
+                     ACTIONS
+                ================================================== -->
+
+          <div class="flow-actions">
+            <button class="secondary-btn" onclick="history.back()">Back</button>
+
+            <button class="primary-btn" id="findBtn">
+              Find Best Worker
+
+              <svg viewBox="0 0 24 24">
+                <path d="M5 12h14" />
+
+                <path d="m13 6 6 6-6 6" />
+              </svg>
+            </button>
+          </div>
+        </section>
+
+        <!-- =================================================
+                 RIGHT SERVICE ILLUSTRATION
+            ================================================== -->
+
+        <div class="service-art service-art-right" aria-hidden="true">
+          <svg viewBox="0 0 180 180">
+            <!-- Paint brush -->
+
+            <path d="M118 38l24 24" />
+
+            <path d="M142 62l-12 12" />
+
+            <path d="M130 74l-38 38" />
+
+            <path d="M92 112c-9 9-22 9-30 1" />
+
+            <path d="M62 113c-5 7-5 18 2 24" />
+
+            <!-- Paint palette -->
+
+            <path
+              d="M52 42c-22 3-34 19-31 37 3 18 20 29 39 25 7-2 9-8 6-13-3-5 1-10 8-10h8c12 0 18-9 14-20-6-14-23-22-44-19Z"
+            />
+
+            <!-- Palette colors -->
+
+            <circle cx="45" cy="61" r="4" />
+
+            <circle cx="58" cy="53" r="4" />
+
+            <circle cx="69" cy="64" r="4" />
+
+            <!-- Little sparks -->
+
+            <path d="M128 125v12" />
+
+            <path d="M122 131h12" />
+
+            <path d="M145 105v8" />
+
+            <path d="M141 109h8" />
+          </svg>
+        </div>
+      </div>
+    </main>
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="schedule-service.js"></script>
+  </body>
+</html>

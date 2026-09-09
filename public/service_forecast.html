@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Service Forecast</title>
+    <link rel="stylesheet" href="./static/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <nav class="sidebar">
+      <div class="brand">Sahayak</div>
+      <a href="./homepage.html">Home</a>
+      <a href="./dashboard.html">Dashboard</a>
+      <a href="./analysis.html">Demand Forecast</a>
+      <a href="./service_forecast.html">Service Forecast</a>
+      <a href="./area_stats.html">Location Forecast</a>
+      <!-- <a href="./worker_recommendations.html">Worker Recommendation</a> -->
+      <!-- <a href="./dashboard.html">Analytics</a> -->
+    </nav>
+
+    <main class="page">
+      <p class="eyebrow">SERVICE VIEW</p>
+      <h1>Service Demand</h1>
+      <div class="filters">
+        <label>Service<select id="serviceSelect"></select></label>
+      </div>
+      <section class="panel chart-panel">
+        <h2>Next 7-day service forecast</h2>
+        <canvas id="nextWeekServiceChart"></canvas>
+      </section>
+      <section class="panel chart-panel">
+        <h2>Weekly request history</h2>
+        <canvas id="weeklyServiceChart"></canvas>
+      </section>
+    </main>
+    <script src="./static/service_forecast.js"></script>
+  </body>
+</html>

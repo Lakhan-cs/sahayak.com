@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Location Forecast</title>
+    <link rel="stylesheet" href="./static/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <nav class="sidebar">
+      <div class="brand">Sahayak</div>
+      <a href="./homepage.html">Home</a>
+      <a href="./dashboard.html">Dashboard</a>
+      <a href="./analysis.html">Demand Forecast</a>
+      <a href="./service_forecast.html">Service Forecast</a>
+      <a href="./area_stats.html">Location Forecast</a>
+      <!-- <a href="./worker_recommendations.html">Worker Recommendation</a> -->
+      <!-- <a href="./dashboard.html">Analytics</a> -->
+    </nav>
+
+    <main class="page">
+      <p class="eyebrow">LOCATION VIEW</p>
+      <h1>Area Demand Analysis</h1>
+      <div class="filters">
+        <label>Area<select id="areaSelect"></select></label>
+      </div>
+      <div class="stats-grid compact">
+        <div class="stat-card">
+          <span>Previous week</span><strong id="lastWeek">–</strong>
+        </div>
+        <div class="stat-card">
+          <span>Latest week</span><strong id="thisWeek">–</strong>
+        </div>
+        <div class="stat-card">
+          <span>Next 7 days</span><strong id="nextWeek">–</strong>
+        </div>
+        <div class="stat-card">
+          <span>Growth</span><strong id="growthRate">–</strong>
+        </div>
+      </div>
+      <section class="panel chart-panel">
+        <canvas id="areaDemandChart"></canvas>
+      </section>
+    </main>
+    <script src="./static/area_stats.js"></script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Worker Recommendation</title>
+<!-- <link rel="stylesheet" href="./static/style.css"> -->
+</head>
+<body>
+<!-- <nav class="sidebar">
+    <div class="brand">DemandAI</div>
+    <a href="./dashboard.html">Dashboard</a>
+    <a href="./analysis.html">Demand Forecast</a>
+    <a href="./service_forecast.html">Service Forecast</a>
+    <a href="./area_stats.html">Location Forecast</a>
+    <a href="./worker_recommendations.html">Worker Recommendation</a>
+    <a href="./dashboard.html">Analytics</a> -->
+</nav>
+
+<main class="page">
+  <p class="eyebrow">RESOURCE ALLOCATION</p><h1>Worker Recommendation</h1>
+  <div class="filters">
+    <label>Area<select id="workerArea"></select></label>
+    <label>Service<select id="workerService"></select></label>
+    <button id="recommendBtn">Recommend Workers</button>
+  </div>
+  <div class="stats-grid compact">
+    <div class="stat-card"><span>7-day demand</span><strong id="workerForecast">–</strong></div>
+    <div class="stat-card"><span>Workers required</span><strong id="workerRequired">–</strong></div>
+    <div class="stat-card"><span>Available now</span><strong id="workerAvailable">–</strong></div>
+    <div class="stat-card"><span>Capacity gap</span><strong id="workerGap">–</strong></div>
+  </div>
+  <section class="panel"><h2>Ranked providers</h2><div id="recommendations" class="table-wrap">Select an area and service.</div></section>
+</main>
+<!-- <script src="./static/worker_recommendations.js"></script> -->
+</body></html>

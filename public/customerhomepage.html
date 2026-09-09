@@ -1,0 +1,1037 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Sahayak — Customer Home</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700&family=IBM+Plex+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="customerhomepage.css" />
+
+    <script src="https://cdn.botpress.cloud/webchat/v3.7/inject.js"></script>
+    <script
+      src="https://files.bpcontent.cloud/2026/09/08/09/20260908094934-PDTW95CW.js"
+      defer
+    ></script>
+  </head>
+
+  <body>
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <header class="customer-header">
+      <div class="customer-nav">
+        <a href="homepage.html" class="brand">
+          <span class="brand-mark"></span>
+          Sahayak
+        </a>
+
+        <nav class="nav-links">
+          <a href="#home" class="active">Home</a>
+
+          <a href="#services"> Services </a>
+
+          <a href="#how"> How it works </a>
+
+          <a href="#about"> About </a>
+        </nav>
+
+        <div class="nav-right">
+          <!-- Notification -->
+
+          <button
+            class="notification-button"
+            id="notificationButton"
+            aria-label="Notifications"
+          >
+            <svg viewBox="0 0 24 24">
+              <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9" />
+              <path d="M10 21h4" />
+            </svg>
+
+            <span class="notification-badge"> 2 </span>
+          </button>
+
+          <!-- Profile -->
+
+          <button class="profile-trigger" id="profileTrigger">
+            <span class="profile-avatar"> A </span>
+
+            <span class="profile-name"> Ananya </span>
+
+            <svg class="profile-chevron" viewBox="0 0 24 24">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main id="home">
+      <!-- =================================================
+             HERO
+        ================================================== -->
+
+      <section class="customer-hero">
+        <div class="customer-wrap">
+          <div class="utility-row">
+            <div class="location-bar">
+              <div class="location-icon">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"
+                  ></path>
+                  <circle cx="12" cy="10" r="2.5"></circle>
+                </svg>
+              </div>
+
+              <div class="location-info">
+                <span>CURRENT LOCATION</span>
+                <strong id="locationValue">Civil Lines, Delhi</strong>
+              </div>
+
+              <button class="change-location" id="changeLocation">
+                Change
+              </button>
+              <span
+                class="location-status"
+                id="locationStatus"
+                style="background: rgb(57, 169, 107)"
+              ></span>
+            </div>
+
+            <div class="live-clock-badge" id="liveClockBadge">
+              <div class="live-clock-icon">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <path d="M12 7v5l3 3"></path>
+                </svg>
+              </div>
+
+              <div class="live-clock-info">
+                <span>LOCAL TIME</span>
+                <strong id="liveClock">--:--:--</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- HERO CONTENT -->
+
+          <div class="hero-content">
+            <!-- LEFT -->
+
+            <div class="hero-copy">
+              <span class="eyebrow"> SAHAYAK / CUSTOMER </span>
+
+              <h1>
+                <span id="greeting"> Good morning </span>,
+                <span id="hero-name"> Ananya </span>
+                <em>👋</em>
+              </h1>
+
+              <p>What do you need help with today?</p>
+
+              <!-- AI SERVICE SEARCH -->
+
+              <div class="customer-ai-label">
+                <span>✦</span>
+                AI Service Search
+              </div>
+
+              <div class="search-container">
+                <div class="search-icon">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="m20 20-4-4" />
+                  </svg>
+                </div>
+
+                <input
+                  type="text"
+                  id="serviceSearch"
+                  placeholder="Search for a service..."
+                  autocomplete="off"
+                />
+
+                <button class="search-button" id="searchButton">Search</button>
+
+                <!-- <div
+                                class="search-results ai-customer-results"
+                                id="searchResults"
+                                aria-live="polite">
+                            </div> -->
+              </div>
+              <div
+                class="search-results ai-customer-results"
+                id="searchResults"
+                aria-live="polite"
+              ></div>
+            </div>
+
+            <!-- RIGHT SKETCH -->
+
+            <div class="hero-sketch">
+              <br />
+
+              <svg
+                class="nabhi-city-sketch"
+                viewBox="0 0 520 240"
+                aria-hidden="true"
+              >
+                <!-- CLOUD -->
+                <path
+                  class="city-line"
+                  d="M40 48
+           C40 38 48 30 58 30
+           C62 20 72 15 83 15
+           C97 15 107 25 108 38
+           C116 38 122 43 122 51
+           H40
+           Z"
+                />
+
+                <!-- BIRDS -->
+                <path
+                  class="city-line"
+                  d="M155 34 Q162 28 169 34 Q176 28 183 34"
+                />
+
+                <path
+                  class="city-line"
+                  d="M365 27 Q371 22 377 27 Q383 22 389 27"
+                />
+
+                <path
+                  class="city-line"
+                  d="M405 55 Q411 50 417 55 Q423 50 429 55"
+                />
+
+                <!-- SUN -->
+                <circle class="city-sun" cx="445" cy="48" r="18" />
+
+                <!-- LEFT TREE -->
+                <path
+                  class="city-line"
+                  d="M70 178
+           V205
+           M58 178
+           C49 168 51 153 62 148
+           C58 137 65 128 75 128
+           C81 116 98 120 100 133
+           C111 136 113 151 104 158
+           C107 170 98 180 87 180
+           C81 180 75 178 70 178Z"
+                />
+
+                <!-- LEFT SMALL TREE -->
+                <path
+                  class="city-line"
+                  d="M135 188
+           V208
+           M125 180
+           C119 171 124 162 132 160
+           C130 150 139 144 147 149
+           C155 147 162 155 159 164
+           C168 169 165 181 157 185
+           C149 190 140 190 135 188Z"
+                />
+
+                <!-- CENTRAL BUILDING -->
+                <path
+                  class="city-line"
+                  d="M205 82
+           H260
+           V207
+           H205
+           Z"
+                />
+
+                <!-- CENTRAL BUILDING ROOF -->
+                <path
+                  class="city-line"
+                  d="M198 82
+           L232 55
+           L267 82"
+                />
+
+                <!-- CENTRAL BUILDING WINDOWS -->
+                <path
+                  class="city-line"
+                  d="M216 98 H228 V112 H216 Z
+           M239 98 H251 V112 H239 Z
+
+           M216 122 H228 V136 H216 Z
+           M239 122 H251 V136 H239 Z
+
+           M216 146 H228 V160 H216 Z
+           M239 146 H251 V160 H239 Z"
+                />
+
+                <!-- CENTRAL DOOR -->
+                <path
+                  class="city-line"
+                  d="M225 207
+           V177
+           H241
+           V207"
+                />
+
+                <!-- LEFT TALL BUILDING -->
+                <path
+                  class="city-line"
+                  d="M165 104
+           H201
+           V207
+           H165
+           Z"
+                />
+
+                <!-- LEFT BUILDING TOP -->
+                <path
+                  class="city-line"
+                  d="M165 104
+           L183 87
+           L201 104"
+                />
+
+                <!-- LEFT WINDOWS -->
+                <path
+                  class="city-line"
+                  d="M173 116 H181 V127 H173 Z
+           M186 116 H194 V127 H186 Z
+
+           M173 139 H181 V150 H173 Z
+           M186 139 H194 V150 H186 Z
+
+           M173 162 H181 V173 H173 Z
+           M186 162 H194 V173 H186 Z"
+                />
+
+                <!-- RIGHT BUILDING -->
+                <path
+                  class="city-line"
+                  d="M267 94
+           H315
+           V207
+           H267
+           Z"
+                />
+
+                <!-- RIGHT BUILDING ROOF -->
+                <path
+                  class="city-line"
+                  d="M261 94
+           L291 69
+           L321 94"
+                />
+
+                <!-- RIGHT WINDOWS -->
+                <path
+                  class="city-line"
+                  d="M276 108 H287 V120 H276 Z
+           M295 108 H306 V120 H295 Z
+
+           M276 131 H287 V143 H276 Z
+           M295 131 H306 V143 H295 Z
+
+           M276 154 H287 V166 H276 Z
+           M295 154 H306 V166 H295 Z"
+                />
+
+                <!-- RIGHT DOOR -->
+                <path
+                  class="city-line"
+                  d="M285 207
+           V178
+           H298
+           V207"
+                />
+
+                <!-- FAR RIGHT BUILDING -->
+                <path
+                  class="city-line"
+                  d="M330 108
+           H368
+           V207
+           H330
+           Z"
+                />
+
+                <path
+                  class="city-line"
+                  d="M325 108
+           L349 88
+           L373 108"
+                />
+
+                <!-- FAR RIGHT WINDOWS -->
+                <path
+                  class="city-line"
+                  d="M338 120 H347 V132 H338 Z
+           M353 120 H362 V132 H353 Z
+
+           M338 143 H347 V155 H338 Z
+           M353 143 H362 V155 H353 Z
+
+           M338 166 H347 V178 H338 Z
+           M353 166 H362 V178 H353 Z"
+                />
+
+                <!-- RIGHT TREE -->
+                <path
+                  class="city-line"
+                  d="M405 179
+           V207
+           M393 178
+           C385 168 388 157 397 153
+           C394 142 402 133 412 134
+           C418 123 434 127 436 140
+           C447 144 448 158 440 165
+           C443 176 434 184 424 184
+           C416 184 409 182 405 179Z"
+                />
+
+                <!-- FAR RIGHT TREE -->
+                <path
+                  class="city-line"
+                  d="M470 176
+           V207
+           M459 175
+           C452 166 455 155 464 151
+           C461 140 469 132 479 133
+           C485 122 500 126 502 138
+           C512 142 514 155 506 162
+           C509 173 500 181 490 181
+           C481 181 474 179 470 176Z"
+                />
+
+                <!-- SMALL STREET DETAILS -->
+                <path class="city-line-light" d="M145 207 H445" />
+
+                <!-- SMALL SPARK -->
+                <path
+                  class="city-line-light"
+                  d="M135 74 V84
+           M130 79 H140"
+                />
+
+                <path
+                  class="city-line-light"
+                  d="M390 86 V96
+           M385 91 H395"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bookings-section" id="bookings">
+        <div class="customer-wrap">
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow"> STAY UPDATED </span>
+
+              <h2>Your bookings.</h2>
+            </div>
+
+            <button class="simple-link" id="viewAllBookings">
+              View all bookings
+              <span>→</span>
+            </button>
+          </div>
+
+          <div class="bookings-grid" id="bookingsGrid"></div>
+        </div>
+      </section>
+
+      <!-- =================================================
+             POPULAR SERVICES
+        ================================================== -->
+
+      <section class="services-section" id="services">
+        <div class="customer-wrap">
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow"> WHAT DO YOU NEED? </span>
+
+              <h2>Popular services.</h2>
+            </div>
+
+            <button class="view-services" id="viewAllServices">
+              View all services
+
+              <svg viewBox="0 0 24 24">
+                <path d="M5 12h14" />
+                <path d="m13 6 6 6-6 6" />
+              </svg>
+            </button>
+          </div>
+
+          <div class="service-grid" id="serviceGrid"></div>
+        </div>
+      </section>
+
+      <!-- =================================================
+             RECOMMENDED
+        ================================================== -->
+
+      <section class="recommended-section">
+        <div class="customer-wrap">
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow"> BASED ON YOUR ACTIVITY </span>
+
+              <h2>Recommended for you.</h2>
+            </div>
+
+            <button class="simple-link">
+              See all
+              <span>→</span>
+            </button>
+          </div>
+
+          <div class="recommended-grid" id="recommendedGrid"></div>
+        </div>
+      </section>
+
+      <!-- =================================================
+             CREATE REQUEST
+        ================================================== -->
+
+      <section class="request-section">
+        <div class="customer-wrap">
+          <div class="request-card">
+            <div>
+              <span class="eyebrow"> NEED SOMETHING DONE? </span>
+
+              <h2>Tell us what you need.</h2>
+
+              <p>
+                Create a request and we'll notify nearby workers who can help.
+              </p>
+            </div>
+
+            <button class="request-button" id="createRequest">
+              Create a service request
+
+              <svg viewBox="0 0 24 24">
+                <path d="M5 12h14" />
+                <path d="m13 6 6 6-6 6" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+      <!-- =================================================
+    WHY SAHAYAK
+================================================== -->
+
+      <section class="why-nabhi-section" id="about">
+        <!-- =====================================================
+         AMBIENT COMMUNITY SKETCHES
+         These sit around the panel, not inside it.
+    ====================================================== -->
+
+        <svg
+          class="why-sketch why-sketch-tl"
+          viewBox="0 0 320 300"
+          aria-hidden="true"
+        >
+          <g class="why-sketch-group">
+            <!-- connection constellation -->
+            <path
+              class="why-sketch-line"
+              d="M34 58 L116 30 L181 75 L254 38 M34 58 L79 112 L181 75 M79 112 L132 154"
+            />
+            <circle class="why-sketch-node" cx="34" cy="58" r="4" />
+            <circle class="why-sketch-node" cx="116" cy="30" r="3" />
+            <circle class="why-sketch-node" cx="181" cy="75" r="5" />
+            <circle class="why-sketch-node" cx="254" cy="38" r="3" />
+            <circle class="why-sketch-node" cx="79" cy="112" r="3" />
+            <circle
+              class="why-sketch-line"
+              cx="181"
+              cy="75"
+              r="37"
+              stroke-dasharray="2 7"
+            />
+
+            <!-- cloud -->
+            <path
+              class="why-sketch-line"
+              d="M42 177 C42 165 52 157 64 157 C68 144 80 137 93 138 C108 138 119 148 120 161 C132 161 141 168 141 179 H42 Z"
+            />
+
+            <!-- tree -->
+            <path
+              class="why-sketch-line"
+              d="M66 260 V219 M54 226 C45 216 48 201 59 196 C55 185 63 176 74 177 C80 165 96 169 98 181 C110 184 112 199 102 207 C106 220 96 230 84 230 C77 230 70 227 66 226"
+            />
+
+            <!-- tiny stars -->
+            <path
+              class="why-sketch-line"
+              d="M24 146 V158 M18 152 H30 M205 137 V147 M200 142 H210"
+            />
+          </g>
+        </svg>
+
+        <svg
+          class="why-sketch why-sketch-left"
+          viewBox="0 0 300 340"
+          aria-hidden="true"
+        >
+          <g class="why-sketch-group">
+            <!-- small house -->
+            <path class="why-sketch-line" d="M58 250 H184 V317 H58 Z" />
+            <path class="why-sketch-line" d="M42 251 L121 184 L200 251" />
+            <path
+              class="why-sketch-line"
+              d="M77 270 H102 V317 H77 Z M128 270 H151 V291 H128 Z"
+            />
+            <path
+              class="why-sketch-line"
+              d="M48 316 C82 301 105 297 121 302 C139 308 158 306 192 316"
+            />
+
+            <!-- path to house -->
+            <path
+              class="why-sketch-line"
+              d="M115 317 C113 293 126 279 121 259"
+            />
+
+            <!-- grass -->
+            <path
+              class="why-sketch-line"
+              d="M39 325 q8-9 16 0 M177 326 q8-9 16 0 M214 315 q7-9 14 0"
+            />
+
+            <!-- leafy plant -->
+            <path
+              class="why-sketch-line"
+              d="M219 322 V278 M219 297 C208 291 205 282 211 276 C220 280 223 288 219 297 M219 305 C230 299 237 292 234 284 C225 286 219 294 219 305"
+            />
+          </g>
+        </svg>
+
+        <svg
+          class="why-sketch why-sketch-tr"
+          viewBox="0 0 320 300"
+          aria-hidden="true"
+        >
+          <g class="why-sketch-group">
+            <!-- cloud -->
+            <path
+              class="why-sketch-line"
+              d="M176 58 C176 47 185 39 196 39 C201 27 211 21 224 22 C239 22 250 32 251 45 C263 45 272 52 272 63 H176 Z"
+            />
+
+            <!-- birds -->
+            <path
+              class="why-sketch-line"
+              d="M54 72 Q62 65 70 72 Q78 65 86 72"
+            />
+            <path
+              class="why-sketch-line"
+              d="M94 101 Q101 95 108 101 Q115 95 122 101"
+            />
+
+            <!-- sun/spark -->
+            <path class="why-sketch-line" d="M40 38 V54 M32 46 H48" />
+            <path class="why-sketch-line" d="M284 102 V114 M278 108 H290" />
+
+            <!-- location pin -->
+            <path
+              class="why-sketch-line"
+              d="M220 145 C220 126 245 126 245 145 C245 162 232 177 232 177 C232 177 220 162 220 145 Z"
+            />
+            <circle class="why-sketch-line" cx="232.5" cy="145" r="5" />
+            <path
+              class="why-sketch-line"
+              d="M205 184 Q232 175 260 184 Q272 188 281 181"
+              stroke-dasharray="3 7"
+            />
+
+            <!-- small stars -->
+            <path class="why-sketch-line" d="M145 18 V30 M139 24 H151" />
+          </g>
+        </svg>
+
+        <svg
+          class="why-sketch why-sketch-right"
+          viewBox="0 0 320 360"
+          aria-hidden="true"
+        >
+          <g class="why-sketch-group">
+            <!-- house -->
+            <path class="why-sketch-line" d="M118 238 H247 V322 H118 Z" />
+            <path class="why-sketch-line" d="M101 239 L183 174 L265 239" />
+            <path
+              class="why-sketch-line"
+              d="M139 263 H165 V322 H139 Z M188 263 H214 V285 H188 Z"
+            />
+            <path
+              class="why-sketch-line"
+              d="M109 322 C143 308 177 309 198 315 C220 322 239 317 258 322"
+            />
+
+            <!-- tree -->
+            <path
+              class="why-sketch-line"
+              d="M274 321 V258 M260 268 C251 258 254 243 265 238 C261 227 269 218 280 220 C286 208 301 212 303 224 C313 228 315 242 306 250 C310 263 301 272 290 272 C283 272 277 270 274 268"
+            />
+
+            <!-- foliage -->
+            <path
+              class="why-sketch-line"
+              d="M66 331 V284 M66 305 C54 300 50 291 56 285 C65 288 69 296 66 305 M66 314 C78 308 84 300 81 292 C72 294 66 302 66 314"
+            />
+            <path
+              class="why-sketch-line"
+              d="M32 342 q9-12 18 0 M50 342 q9-12 18 0"
+            />
+
+            <!-- spark -->
+            <path class="why-sketch-line" d="M286 182 V194 M280 188 H292" />
+          </g>
+        </svg>
+
+        <div class="why-nabhi-panel">
+          <div class="customer-wrap">
+            <div class="why-nabhi-head">
+              <div>
+                <span class="eyebrow"> WHY SAHAYAK </span>
+
+                <h2>
+                  Local help,
+                  <em>built on trust.</em>
+                </h2>
+              </div>
+
+              <p>
+                Sahayak connects customers with nearby gig workers for everyday
+                services while keeping trust and accountability at the heart of
+                every connection.
+              </p>
+            </div>
+
+            <div class="trust-flow">
+              <div class="trust-step">
+                <span class="trust-number">01</span>
+
+                <div class="trust-icon">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="8" r="3.5"></circle>
+                    <path d="M5 20c.8-3.8 3.1-6 7-6s6.2 2.2 7 6"></path>
+                  </svg>
+                </div>
+
+                <div>
+                  <h3>Local workers</h3>
+                  <p>
+                    People offering their skills and services within their own
+                    communities.
+                  </p>
+                </div>
+              </div>
+
+              <div class="trust-arrow">→</div>
+
+              <div class="trust-step">
+                <span class="trust-number">02</span>
+
+                <div class="trust-icon">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M4 10 12 4l8 6"></path>
+                    <path d="M6 9v10h12V9"></path>
+                    <path d="M9 19v-5h6v5"></path>
+                  </svg>
+                </div>
+
+                <div>
+                  <h3>Cooperative society</h3>
+                  <p>
+                    Workers are verified through registered cooperative
+                    societies before joining Sahayak.
+                  </p>
+                </div>
+              </div>
+
+              <div class="trust-arrow">→</div>
+
+              <div class="trust-step">
+                <span class="trust-number">03</span>
+
+                <div class="trust-icon">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 3 20 6v5c0 5-3.3 8.2-8 10-4.7-1.8-8-5-8-10V6z"
+                    ></path>
+                    <path d="m8.5 12 2.2 2.2 4.8-5"></path>
+                  </svg>
+                </div>
+
+                <div>
+                  <h3>Government verified</h3>
+                  <p>
+                    Our cooperative network is verified through the relevant
+                    government authorities.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="why-nabhi-bottom">
+              <span>TRUSTED LOCALLY</span>
+
+              <p>
+                A stronger layer of verification between the people who need
+                help and the people who provide it.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =====================================================
+         PROFILE DRAWER
+    ====================================================== -->
+
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+
+    <aside class="profile-drawer" id="profileDrawer">
+      <div class="drawer-header">
+        <div>
+          <span class="eyebrow"> YOUR ACCOUNT </span>
+
+          <h2>Profile</h2>
+        </div>
+
+        <button class="drawer-close" id="drawerClose">×</button>
+      </div>
+
+      <!-- PROFILE -->
+
+      <div class="profile-summary">
+        <div class="large-avatar" id="profile-summary-avatar">A</div>
+
+        <div>
+          <h3 id="profile-summary-name">Ananya Sharma</h3>
+
+          <p id="profile-summary-email">ananya@example.com</p>
+
+          <button class="edit-profile" id="editProfileButton">
+            Edit profile
+          </button>
+        </div>
+      </div>
+
+      <!-- QUICK ACTIONS -->
+
+      <div class="drawer-section">
+        <span class="drawer-title"> QUICK ACTIONS </span>
+
+        <button class="drawer-action" data-account-view="track">
+          <span class="action-icon"> ⌁ </span>
+
+          <span> Track booking </span>
+
+          <span> → </span>
+        </button>
+
+        <button class="drawer-action" data-account-view="bookings">
+          <span class="action-icon"> ♡ </span>
+
+          <span> My bookings </span>
+
+          <span> → </span>
+        </button>
+
+        <button class="drawer-action" data-account-view="recent">
+          <span class="action-icon"> ↻ </span>
+
+          <span> Recent requests </span>
+
+          <span> → </span>
+        </button>
+
+        <button class="drawer-action" data-account-view="help">
+          <span class="action-icon"> ? </span>
+
+          <span> Help & support </span>
+
+          <span> → </span>
+        </button>
+      </div>
+
+      <!-- RECENT REQUEST -->
+
+      <div class="drawer-section">
+        <div class="drawer-section-heading">
+          <span class="drawer-title"> RECENT REQUEST </span>
+
+          <button id="recentRequestSeeAll">See all</button>
+        </div>
+
+        <div class="recent-request" id="recentRequestCard">
+          <div class="recent-request-icon">⌂</div>
+
+          <div>
+            <strong id="recentRequestService"> Home cleaning </strong>
+
+            <span id="recentRequestStatus"> Yesterday · Completed </span>
+          </div>
+
+          <span> → </span>
+        </div>
+      </div>
+
+      <div class="drawer-footer">
+        <button id="settingsButton">Settings</button>
+
+        <button class="logout-button" id="logoutButton">Log out</button>
+      </div>
+    </aside>
+
+    <div class="account-modal" id="accountModal" hidden>
+      <div
+        class="account-modal-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="accountModalTitle"
+      >
+        <div class="account-modal-header">
+          <div>
+            <span class="eyebrow">SAHAYAK / ACCOUNT</span>
+            <h2 id="accountModalTitle">My account</h2>
+          </div>
+          <button
+            class="account-modal-close"
+            id="accountModalClose"
+            aria-label="Close"
+          >
+            ×
+          </button>
+        </div>
+        <div class="account-modal-body" id="accountModalBody"></div>
+      </div>
+    </div>
+
+    <!-- =====================================================
+         TOAST
+    ====================================================== -->
+
+    <div class="toast" id="toast">
+      <span id="toastMessage"></span>
+    </div>
+
+    <!-- =================================================
+    SAHAYAK TICKER
+================================================== -->
+
+    <div class="nabhi-ticker">
+      <div class="nabhi-ticker-track">
+        <span>CONNECTING PEOPLE</span>
+        <i>✦</i>
+
+        <span>EMPOWERING LOCAL SKILLS</span>
+        <i>✦</i>
+
+        <span>TRUSTED LOCAL SERVICES</span>
+        <i>✦</i>
+
+        <span>BUILT FOR THE COMMUNITY</span>
+        <i>✦</i>
+
+        <span>CONNECTING PEOPLE</span>
+        <i>✦</i>
+
+        <span>EMPOWERING LOCAL SKILLS</span>
+        <i>✦</i>
+
+        <span>TRUSTED LOCAL SERVICES</span>
+        <i>✦</i>
+
+        <span>BUILT FOR THE COMMUNITY</span>
+        <i>✦</i>
+      </div>
+    </div>
+    <!-- =========================================================
+     FOOTER
+========================================================= -->
+
+    <footer class="customer-footer">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <!-- BRAND -->
+          <div class="footer-brand">
+            <div class="footer-logo">
+              <span class="footer-logo-mark"></span>
+              Sahayak
+            </div>
+
+            <p>
+              A cooperative platform connecting neighbours with trusted local
+              service providers.
+            </p>
+          </div>
+
+          <!-- COMPANY -->
+          <div class="footer-column">
+            <h4>COMPANY</h4>
+
+            <a href="#">About us</a>
+            <a href="#">Terms &amp; conditions</a>
+            <a href="#">Privacy policy</a>
+            <a href="#">Careers</a>
+          </div>
+
+          <!-- CUSTOMERS -->
+          <div class="footer-column">
+            <h4>CUSTOMERS</h4>
+
+            <a href="#">Reviews</a>
+            <a href="#">Categories near you</a>
+            <a href="#">Help centre</a>
+          </div>
+
+          <!-- CONTACT -->
+          <div class="footer-column">
+            <h4>CONTACT US</h4>
+
+            <a href="mailto:hello@sahayak.com"> hello@nabhi.com </a>
+
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+          </div>
+        </div>
+
+        <!-- BOTTOM -->
+        <div class="footer-bottom">
+          <span> © 2026 Sahayak. All rights reserved. </span>
+
+          <span class="footer-credit">
+            Designed and developed by
+            <strong>Team 6Bits</strong>
+          </span>
+        </div>
+      </div>
+    </footer>
+    <script src="customerhomepage.js"></script>
+    <script src="./static/search_ai.js"></script>
+  </body>
+</html>

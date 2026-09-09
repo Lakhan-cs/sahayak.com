@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Sahayak — Booking Confirmed</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="flow.css" />
+  </head>
+  <body>
+    <header class="flow-header">
+      <a class="flow-brand" href="customer-home.html"
+        ><span class="flow-mark"></span>Sahayak</a
+      >
+    </header>
+    <main class="flow-wrap">
+      <section class="flow-card success">
+        <span class="eyebrow">Booking confirmed</span>
+        <div class="success-mark">
+          <svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6" /></svg>
+        </div>
+        <h1 class="flow-title">You're all set.</h1>
+        <p class="flow-subtitle" style="margin-left: auto; margin-right: auto">
+          Rakesh Kumar has been assigned to your service request. Your booking
+          is now confirmed.
+        </p>
+        <div class="booking-id" id="bookingId">NB-PLU-2048</div>
+        <div class="success-info">
+          <div class="success-row">
+            <span>Service</span><strong id="service"></strong>
+          </div>
+          <div class="success-row">
+            <span>Worker</span><strong>Rakesh Kumar · ★ 4.9</strong>
+          </div>
+          <div class="success-row">
+            <span>When</span><strong id="when"></strong>
+          </div>
+          <div class="success-row">
+            <span>Location</span><strong id="location"></strong>
+          </div>
+          <div class="success-row"><span>Total</span><strong>₹448</strong></div>
+        </div>
+        <div class="success-actions">
+          <a class="secondary-btn" href="customer-home.html">Back to Home</a
+          ><button
+            class="primary-btn"
+            onclick="
+              alert('Demo: tracking will be connected to the backend later.')
+            "
+          >
+            Track Service
+          </button>
+        </div>
+      </section>
+    </main>
+    <script>
+      const s = sessionStorage.getItem("nabhiService") || "Home Service";
+      const mode = sessionStorage.getItem("nabhiMode") || "asap";
+      const d = sessionStorage.getItem("nabhiDate") || "";
+      const t = sessionStorage.getItem("nabhiTime") || "";
+      document.getElementById("bookingId").textContent =
+        sessionStorage.getItem("nabhiBookingId") || "NB-DEMO-2048";
+      document.getElementById("service").textContent = s;
+      document.getElementById("when").textContent =
+        mode === "asap" ? "ASAP" : `${d} · ${t}`;
+      document.getElementById("location").textContent =
+        sessionStorage.getItem("nabhiLocation") || "Current location";
+    </script>
+  </body>
+</html>

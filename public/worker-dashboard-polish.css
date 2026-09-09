@@ -1,0 +1,656 @@
+/* =========================================================
+  SAHAYAK WORKER DASHBOARD — MODERN POLISH LAYER
+   This file only ADDS animation/interaction refinements on
+   top of worker-dashboard.css. It does not rename or remove
+   any class/id the HTML or JS depends on, so nothing about
+   how the dashboard works should change — only how it feels.
+   Loaded AFTER worker-dashboard.css so these rules can
+   gently override things like transitions and shadows.
+========================================================= */
+
+:root {
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast: 0.18s;
+  --dur: 0.32s;
+  --dur-slow: 0.55s;
+  --ring: 0 0 0 3px rgba(110, 47, 217, 0.18);
+}
+
+/* Respect users who've asked for less motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Base feel: smoother, consistent transitions ---------- */
+a,
+button,
+.nav-item,
+.help-link,
+.icon-btn,
+.worker-chip,
+.text-btn,
+.primary-btn,
+.stat-card,
+.feature-card,
+.job-row,
+.welfare-card,
+.next-job,
+.timeline-item,
+.pill,
+.switch span,
+.switch span:before,
+.account-menu button,
+.job-tabs button,
+.sidebar-profile > button {
+  transition:
+    background-color var(--dur-fast) var(--ease-soft),
+    border-color var(--dur-fast) var(--ease-soft),
+    color var(--dur-fast) var(--ease-soft),
+    transform var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
+}
+
+/* Clear, tasteful keyboard focus (accessibility + feels modern) */
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+a:focus-visible {
+  outline: none;
+  box-shadow: var(--ring);
+  border-radius: 8px;
+}
+
+/* ---------- View / page transitions ---------- */
+@keyframes viewIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.view.active {
+  animation: viewIn var(--dur-slow) var(--ease) both;
+}
+
+/* Stagger the big chunks of the dashboard view so it doesn't feel flat */
+#view-dashboard.active > * {
+  animation: viewIn var(--dur-slow) var(--ease) both;
+}
+
+#view-dashboard.active > *:nth-child(1) {
+  animation-delay: 0.02s;
+}
+
+#view-dashboard.active > *:nth-child(2) {
+  animation-delay: 0.06s;
+}
+
+#view-dashboard.active > *:nth-child(3) {
+  animation-delay: 0.1s;
+}
+
+#view-dashboard.active > *:nth-child(4) {
+  animation-delay: 0.14s;
+}
+
+#view-dashboard.active > *:nth-child(5) {
+  animation-delay: 0.18s;
+}
+
+#view-dashboard.active > *:nth-child(6) {
+  animation-delay: 0.22s;
+}
+
+#view-dashboard.active > *:nth-child(7) {
+  animation-delay: 0.26s;
+}
+
+#view-dashboard.active > *:nth-child(8) {
+  animation-delay: 0.3s;
+}
+
+/* ---------- Sidebar navigation ---------- */
+.nav-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-item span {
+  transition: transform var(--dur) var(--ease);
+}
+
+.nav-item:hover span {
+  transform: scale(1.12);
+}
+
+.nav-item:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 3px;
+  border-radius: 3px;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform var(--dur) var(--ease);
+}
+
+.nav-item.active:before {
+  transform: scaleY(1);
+}
+
+.nav-item.active {
+  background: rgba(247, 241, 231, 0.12);
+}
+
+.nav-item:hover {
+  transform: translateX(2px);
+}
+
+.help-link b {
+  transition: transform var(--dur) var(--ease);
+}
+
+.help-link:hover b {
+  transform: translate(2px, -2px);
+}
+
+.sidebar-avatar {
+  transition: transform var(--dur) var(--ease);
+}
+
+.sidebar-profile:hover .sidebar-avatar {
+  transform: scale(1.06);
+}
+
+/* ---------- Topbar ---------- */
+.icon-btn:hover,
+.worker-chip:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px -12px rgba(27, 18, 48, 0.35);
+}
+
+.icon-btn:active,
+.worker-chip:active,
+.primary-btn:active,
+.feature-card:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.icon-btn b {
+  animation: pulseDot 2.2s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(244, 169, 59, 0.55);
+  }
+
+  50% {
+    box-shadow: 0 0 0 4px rgba(244, 169, 59, 0);
+  }
+}
+
+.worker-chip .chevron {
+  transition: transform var(--dur) var(--ease);
+}
+
+.worker-chip[aria-expanded="true"] .chevron {
+  transform: rotate(180deg);
+}
+
+.avatar,
+#topAvatar {
+  transition: transform var(--dur) var(--ease);
+}
+
+.worker-chip:hover .avatar {
+  transform: scale(1.05);
+}
+
+@keyframes menuIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.account-menu:not([hidden]) {
+  animation: menuIn var(--dur) var(--ease) both;
+  transform-origin: top right;
+}
+
+.account-menu button span {
+  transition: transform var(--dur) var(--ease);
+}
+
+.account-menu button:hover span {
+  transform: scale(1.15);
+}
+
+/* ---------- Location bar ---------- */
+.location-icon {
+  display: inline-block;
+  transition: transform var(--dur) var(--ease);
+}
+
+.location-bar:hover .location-icon {
+  transform: rotate(-8deg) scale(1.08);
+}
+
+.location-bar button {
+  position: relative;
+}
+
+.location-bar button:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 1px;
+  background: var(--primary);
+  transition: width var(--dur) var(--ease);
+}
+
+.location-bar button:hover:after {
+  width: 100%;
+}
+
+/* ---------- Availability card ---------- */
+.availability-card {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--dark-panel) 0%, #2a1e46 100%);
+}
+
+.availability-card:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    420px 160px at 88% -20%,
+    rgba(244, 169, 59, 0.16),
+    transparent 70%
+  );
+}
+
+.switch span {
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.switch span:before {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.switch input:checked + span {
+  box-shadow:
+    inset 0 1px 2px rgba(0, 0, 0, 0.15),
+    0 0 0 4px rgba(244, 169, 59, 0.16);
+}
+
+/* ---------- Stat cards ---------- */
+.stats-grid {
+  perspective: 800px;
+}
+
+.stat-card {
+  position: relative;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 34px -22px rgba(27, 18, 48, 0.35);
+  border-color: rgba(110, 47, 217, 0.28);
+}
+
+.stat-card strong {
+  transition: transform var(--dur) var(--ease);
+}
+
+.stat-card:hover strong {
+  transform: translateX(1px);
+}
+
+/* ---------- Next job card ---------- */
+.next-job:hover {
+  box-shadow: 0 20px 40px -22px rgba(27, 18, 48, 0.3);
+  transform: translateY(-2px);
+}
+
+.next-job .primary-btn {
+  position: relative;
+}
+
+.next-job .job-time {
+  transition: transform var(--dur) var(--ease);
+}
+
+.next-job:hover .job-time {
+  transform: translateX(-2px);
+}
+
+.primary-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.primary-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 22px -12px rgba(110, 47, 217, 0.55);
+}
+
+/* ---------- Timeline ---------- */
+.timeline-item {
+  border-radius: 10px;
+}
+
+.timeline-item:hover {
+  background: rgba(110, 47, 217, 0.05);
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.timeline-item.current strong:before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #39765b;
+  margin-right: 6px;
+  vertical-align: middle;
+  animation: pulseDot2 1.8s ease-in-out infinite;
+}
+
+@keyframes pulseDot2 {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(57, 118, 91, 0.45);
+  }
+
+  50% {
+    box-shadow: 0 0 0 5px rgba(57, 118, 91, 0);
+  }
+}
+
+/* Performance meters — fill in on view */
+.meter,
+.big-meter,
+.bar {
+  position: relative;
+}
+
+.meter i,
+.big-meter i,
+.bar i {
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: fillBar 1s var(--ease) forwards;
+  animation-delay: 0.15s;
+}
+
+@keyframes fillBar {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.feature-card {
+  position: relative;
+}
+
+.feature-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 32px -22px rgba(27, 18, 48, 0.32);
+  border-color: rgba(110, 47, 217, 0.28);
+}
+
+.feature-card > span {
+  transition:
+    transform var(--dur) var(--ease),
+    background var(--dur) var(--ease);
+}
+
+.feature-card:hover > span {
+  transform: scale(1.08) rotate(-4deg);
+  background: var(--primary);
+  color: #fff;
+}
+
+.feature-card > b {
+  transition: transform var(--dur) var(--ease);
+}
+
+.feature-card:hover > b {
+  transform: translateX(3px);
+}
+
+/* ---------- Earnings view ---------- */
+.chart-panel .chart-wrap {
+  animation: viewIn var(--dur-slow) var(--ease) both;
+  animation-delay: 0.05s;
+}
+
+#earningsChart circle {
+  transition: r var(--dur-fast) var(--ease-soft);
+}
+
+#earningsChart circle:hover {
+  r: 7;
+}
+
+.prediction {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--dark-panel), #2a1e46);
+}
+
+.prediction .spark {
+  display: inline-block;
+  animation: sparkle 3s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%,
+  100% {
+    transform: scale(1) rotate(0);
+  }
+
+  50% {
+    transform: scale(1.15) rotate(8deg);
+  }
+}
+
+/* ---------- Jobs view ---------- */
+.job-tabs button {
+  position: relative;
+}
+
+.job-tabs button:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: var(--primary);
+  transform: scaleX(0);
+  transition: transform var(--dur) var(--ease);
+}
+
+.job-tabs button.active:after {
+  transform: scaleX(1);
+}
+
+.job-row:hover {
+  transform: translateY(-2px) translateX(2px);
+  box-shadow: 0 16px 30px -22px rgba(27, 18, 48, 0.3);
+  border-color: rgba(110, 47, 217, 0.25);
+}
+
+.job-row .text-btn {
+  transition: transform var(--dur) var(--ease);
+}
+
+.job-row:hover .text-btn {
+  transform: translateX(3px);
+}
+
+/* ---------- Welfare / help ---------- */
+.welfare-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.welfare-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 34px -22px rgba(27, 18, 48, 0.32);
+}
+
+.welfare-card button {
+  position: relative;
+}
+
+.welfare-card button:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width var(--dur) var(--ease);
+}
+
+.welfare-card button:hover:after {
+  width: 100%;
+}
+
+.welfare-card.dark {
+  background: linear-gradient(135deg, var(--dark-panel), #2a1e46);
+}
+
+/* ---------- Profile ---------- */
+.big-avatar {
+  transition: transform var(--dur) var(--ease);
+}
+
+.profile-main:hover .big-avatar {
+  transform: scale(1.04) rotate(-2deg);
+}
+
+.check-list li {
+  transition: transform var(--dur) var(--ease);
+}
+
+.check-list li:hover {
+  transform: translateX(3px);
+}
+
+/* ---------- Modal ---------- */
+.modal {
+  display: grid;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition:
+    opacity var(--dur) var(--ease-soft),
+    visibility 0s linear var(--dur);
+}
+
+.modal.open {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+  transition: opacity var(--dur) var(--ease-soft);
+}
+
+.modal-card {
+  transform: translateY(14px) scale(0.97);
+  transition: transform var(--dur) var(--ease);
+}
+
+.modal.open .modal-card {
+  transform: translateY(0) scale(1);
+}
+
+.modal-card input,
+.modal-card textarea {
+  transition:
+    border-color var(--dur-fast) var(--ease-soft),
+    box-shadow var(--dur-fast) var(--ease-soft);
+}
+
+.modal-card input:focus,
+.modal-card textarea:focus {
+  border-color: var(--primary);
+  box-shadow: var(--ring);
+}
+
+.modal-close {
+  transition:
+    transform var(--dur) var(--ease),
+    color var(--dur) var(--ease);
+}
+
+.modal-close:hover {
+  transform: rotate(90deg);
+  color: var(--primary);
+}
+
+/* ---------- Toast ---------- */
+.toast {
+  transition:
+    transform var(--dur-slow) var(--ease),
+    opacity var(--dur-slow) var(--ease);
+  box-shadow: 0 20px 40px -18px rgba(27, 18, 48, 0.5);
+}
+
+/* ---------- Scrollbar (subtle, modern) ---------- */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(27, 18, 48, 0.15);
+  border-radius: 20px;
+  border: 2px solid var(--paper);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(27, 18, 48, 0.28);
+}
+
+/* ---------- Mobile sidebar: soften the entrance ---------- */
+@media (max-width: 760px) {
+  .sidebar {
+    transition: transform var(--dur-slow) var(--ease);
+  }
+}

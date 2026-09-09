@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Sahayak - Track your worker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/frontend/navigation/live-tracking.css" />
+    <link rel="stylesheet" href="/frontend/navigation/navigation-polish.css" />
+    <link rel="stylesheet" href="/frontend/navigation/chat.css" />
+  </head>
+  <body class="customer-tracking-page" data-chat-role="customer">
+    <div class="tracking-shell">
+      <header class="tracking-top">
+        <div class="tracking-brand">
+          <span class="brand-mark"></span>Sahayak
+          <span class="tracking-context">Live tracking</span>
+        </div>
+        <div class="tracking-title">
+          Your worker is on the way
+          <span class="live-pill"><i></i> Live location</span>
+        </div>
+      </header>
+      <main class="tracking-main">
+        <div id="map" class="tracking-map"></div>
+        <div class="floating-status" id="status">
+          Waiting for worker location...
+        </div>
+        <button class="map-expand" id="mapExpand" aria-expanded="false">
+          Expand map <span>↗</span>
+        </button>
+        <section class="tracking-card">
+          <div class="assigned-head">
+            <div>
+              <span class="eyebrow">YOUR SERVICE</span>
+              <h1>Worker assigned</h1>
+            </div>
+            <span class="assigned-dot"><i></i> On the way</span>
+          </div>
+          <div class="worker-row">
+            <div class="avatar" id="workerAvatar">R</div>
+            <div>
+              <h2 id="workerName">Rahul Sharma</h2>
+              <p id="workerRole">Verified local worker</p>
+            </div>
+            <span class="rating">&#9733; <b id="workerRating">4.9</b></span>
+          </div>
+          <div class="worker-bento">
+            <div>
+              <span>EXPERTISE</span
+              ><strong id="workerExpertise">Home services</strong>
+            </div>
+            <div><span>ARRIVES IN</span><strong id="eta">-</strong></div>
+            <div><span>AWAY</span><strong id="distance">-</strong></div>
+            <div>
+              <span>BOOKING</span><strong id="serviceName">SERVICE</strong>
+            </div>
+          </div>
+          <a
+            class="payment-link"
+            href="/frontend/navigation/payment-rating.html"
+            >Payment & rating <span>→</span></a
+          >
+          <div class="contact-actions">
+            <button class="contact-button" id="callWorker">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M7.5 4.5 5 6c-.8.5-1.1 1.5-.8 2.4 1.8 5.3 5.6 9.1 10.9 10.9.9.3 1.9 0 2.4-.8l1.5-2.5-3.5-2.4-1.8 1.8a12.7 12.7 0 0 1-6.1-6.1l1.8-1.8-1.9-3z"
+                />
+              </svg>
+              Call worker</button
+            ><button class="contact-button" id="messageWorker">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 5.5h14v10H9l-4 3v-13z" />
+                <path d="M8 9.5h8M8 12.5h5" />
+              </svg>
+              Message
+            </button>
+          </div>
+          <div class="next-turn">
+            <small id="statusLabel">LIVE UPDATE</small
+            ><strong id="instruction"
+              >Your worker's location will appear here as they move.</strong
+            >
+            <p id="updated"></p>
+          </div>
+          <div class="service-details">
+            <div>
+              <span>SERVICE</span
+              ><strong id="detailService">Home service</strong>
+            </div>
+            <div><span>DESTINATION</span><strong>Gurgaon, Haryana</strong></div>
+            <div><span>PAYMENT</span><strong>Pay after service</strong></div>
+            <div><span>SAFETY</span><strong>Verified worker</strong></div>
+          </div>
+          <div class="tracking-actions">
+            <a class="secondary" href="customerhomepage.html">Back to home</a
+            ><button class="primary" id="center">Center on worker</button>
+          </div>
+        </section>
+        <div class="route-legend">
+          <span><b></b> Worker route</span
+          ><span><b class="done"></b> Travelled</span>
+        </div>
+      </main>
+    </div>
+    <button class="chat-launcher" id="chatLauncher">
+      <svg viewBox="0 0 24 24">
+        <path d="M5 5.5h14v10H9l-4 3v-13z" />
+        <path d="M8 9.5h8M8 12.5h5" /></svg
+      >Message worker
+    </button>
+    <section class="chat-panel" id="chatPanel" hidden>
+      <header class="chat-head">
+        <div>
+          <strong>Chat with your worker</strong
+          ><small>Discuss access, arrival, or service details</small>
+        </div>
+        <button class="chat-close" id="chatClose" aria-label="Close chat">
+          &times;
+        </button>
+      </header>
+      <div class="chat-messages" id="chatMessages">
+        <div class="chat-empty">Connecting to chat...</div>
+      </div>
+      <div class="chat-typing" id="chatTyping"></div>
+      <div class="chat-error" id="chatError"></div>
+      <form class="chat-form" id="chatForm">
+        <input
+          id="chatInput"
+          autocomplete="off"
+          placeholder="Write a message..."
+        /><button type="submit">Send</button>
+      </form>
+    </section>
+    <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
+    <script src="/frontend/navigation/customer-tracking.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/frontend/navigation/chat.js"></script>
+  </body>
+</html>

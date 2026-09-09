@@ -1,0 +1,163 @@
+body:has(.rating-stars) .completion-wrap {
+  padding-top: 54px;
+}
+
+body:has(.rating-stars) .completion-intro {
+  position: relative;
+  max-width: 720px;
+}
+
+body:has(.rating-stars) .completion-intro::after {
+  content: "THANK YOU FOR SUPPORTING LOCAL SKILLS";
+  position: absolute;
+  top: 12px;
+  right: -190px;
+  color: rgba(110, 47, 217, 0.38);
+  font: 600 9px "IBM Plex Mono", monospace;
+  letter-spacing: 0.14em;
+  writing-mode: vertical-rl;
+}
+
+body:has(.rating-stars) .completion-card {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 25px 55px -35px rgba(23, 16, 43, 0.5);
+}
+
+body:has(.rating-stars) .completion-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: linear-gradient(90deg, var(--purple), var(--gold));
+}
+
+body:has(.rating-stars) .completion-card h2 {
+  font-size: 28px;
+}
+
+body:has(.rating-stars) .summary-row {
+  padding: 4px 0 14px;
+  border-bottom: 1px solid rgba(23, 16, 43, 0.07);
+}
+
+body:has(.rating-stars) .summary-row:last-child {
+  border-bottom: 0;
+}
+
+body:has(.rating-stars) #paymentStatus {
+  color: var(--gold);
+}
+
+body:has(.rating-stars) select {
+  min-height: 46px;
+  padding: 0 40px 0 13px;
+  border: 1px solid rgba(110, 47, 217, 0.2);
+  border-radius: 12px;
+  background: #fbf9fe;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 700;
+  outline: none;
+  cursor: pointer;
+}
+
+body:has(.rating-stars) select:focus {
+  border-color: var(--purple);
+  box-shadow: 0 0 0 4px rgba(110, 47, 217, 0.1);
+}
+
+body:has(.rating-stars) .primary-action,
+body:has(.rating-stars) .secondary-action {
+  min-height: 46px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+body:has(.rating-stars) .primary-action:hover,
+body:has(.rating-stars) .secondary-action:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(110, 47, 217, 0.16);
+}
+
+body:has(.rating-stars) .rating-stars {
+  display: flex;
+  gap: 8px;
+  margin: 25px 0 22px;
+  padding: 13px;
+  border: 1px solid rgba(244, 169, 59, 0.24);
+  border-radius: 15px;
+  background: #fffaf1;
+}
+
+body:has(.rating-stars) .rating-stars button {
+  width: 39px;
+  height: 39px;
+  padding: 0;
+  border: 1px solid rgba(244, 169, 59, 0.24);
+  border-radius: 11px;
+  background: #fff;
+  color: #d6c9b4;
+  font-size: 21px;
+  line-height: 1;
+  transition: color 0.18s ease, transform 0.18s ease, background 0.18s ease;
+}
+
+body:has(.rating-stars) .rating-stars button:hover,
+body:has(.rating-stars) .rating-stars button.selected {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+body:has(.rating-stars) .feedback-label {
+  display: grid;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+body:has(.rating-stars) #feedback {
+  width: 100%;
+  min-height: 108px;
+  padding: 13px;
+  resize: vertical;
+  border: 1px solid rgba(23, 16, 43, 0.12);
+  border-radius: 13px;
+  background: #fbf9fe;
+  color: var(--ink);
+  font-size: 12px;
+  outline: none;
+}
+
+body:has(.rating-stars) #feedback:focus {
+  border-color: var(--purple);
+  box-shadow: 0 0 0 4px rgba(110, 47, 217, 0.1);
+}
+
+body:has(.rating-stars) .status-message {
+  margin-top: 10px;
+  padding: 9px 11px;
+  border-radius: 9px;
+  background: #edf8f2;
+}
+
+@media (max-width: 720px) {
+  body:has(.rating-stars) .completion-wrap {
+    padding-top: 38px;
+  }
+
+  body:has(.rating-stars) .completion-intro::after {
+    display: none;
+  }
+
+  body:has(.rating-stars) .rating-stars {
+    justify-content: space-between;
+  }
+
+  body:has(.rating-stars) .rating-stars button {
+    width: 18%;
+  }
+}

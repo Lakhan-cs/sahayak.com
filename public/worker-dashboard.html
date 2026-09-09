@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sahayak — Worker Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="worker-dashboard.css" />
+    <link rel="stylesheet" href="worker-dashboard-polish.css" />
+    <link rel="stylesheet" href="frontend/navigation/chat.css" />
+
+    <script src="https://cdn.botpress.cloud/webchat/v3.7/inject.js"></script>
+    <script
+      src="https://files.bpcontent.cloud/2026/09/08/09/20260908094934-PDTW95CW.js"
+      defer
+    ></script>
+  </head>
+  <body data-chat-role="worker">
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <div class="brand">
+          <span class="brand-mark"></span><span>Sahayak</span>
+        </div>
+        <div class="workspace-label">WORKER SPACE</div>
+        <nav>
+          <button class="nav-item active" data-view="dashboard">
+            <span>⌂</span>Dashboard
+          </button>
+          <button class="nav-item" data-view="jobs">
+            <span>▣</span>My Jobs
+          </button>
+          <button class="nav-item" data-view="earnings">
+            <span>↗</span>Earnings
+          </button>
+          <button class="nav-item" data-view="welfare">
+            <span>♡</span>Worker Welfare
+          </button>
+          <button class="nav-item" data-view="profile">
+            <span>◉</span>Profile
+          </button>
+        </nav>
+        <div class="sidebar-bottom">
+          <button class="help-link" data-view="help">
+            <span>♧</span>
+            <div>
+              <strong>Need help?</strong><small>Talk to Sahayak support</small>
+            </div>
+            <b>↗</b>
+          </button>
+          <div class="sidebar-profile">
+            <span class="sidebar-avatar" id="sidebarAvatar">R</span>
+            <div>
+              <strong id="sidebarName">Rahul Sharma</strong
+              ><small id="sidebarWork">Electrician</small>
+            </div>
+            <button id="sidebarMore" aria-label="Account options">•••</button>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <button class="mobile-menu" id="menuBtn">☰</button>
+          <div>
+            <div class="eyebrow">SAHAYAK / WORKER</div>
+            <div class="top-date" id="topDate">—</div>
+          </div>
+          <div class="top-actions">
+            <button class="icon-btn" aria-label="Notifications">
+              ♧<b>2</b>
+            </button>
+            <div class="account-menu-wrap">
+              <button
+                class="worker-chip"
+                id="accountBtn"
+                aria-expanded="false"
+                aria-controls="accountMenu"
+              >
+                <span class="avatar" id="topAvatar">R</span>
+                <span class="worker-identity"
+                  ><strong id="topName">Rahul</strong
+                  ><small id="topWork">Electrician</small></span
+                >
+                <span class="chevron">⌄</span>
+              </button>
+              <div class="account-menu" id="accountMenu" hidden>
+                <button data-view="profile"><span>♙</span>Profile</button>
+                <button data-view="dashboard"><span>⌂</span>Dashboard</button>
+                <button data-view="welfare">
+                  <span>♡</span>Worker Welfare
+                </button>
+                <button id="importantLinksBtn">
+                  <span>▱</span>Important Links
+                </button>
+                <div class="account-divider"></div>
+                <button class="language-row" id="languageBtn">
+                  <span>文</span><b>Language</b><small>English</small>
+                </button>
+                <div class="account-divider"></div>
+                <button class="signout-btn" id="signoutBtn">
+                  <span>↪</span>Sign out
+                </button>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <div class="content">
+          <section class="view active" id="view-dashboard">
+            <div class="hero-row">
+              <div>
+                <div class="eyebrow">YOUR WORKSPACE</div>
+                <h1 id="greeting">Good afternoon, Rahul.</h1>
+                <p class="lead">
+                  Keep your work moving. Here's what needs your attention today.
+                </p>
+              </div>
+              <div class="live-clock">
+                <span>LOCAL TIME</span><strong id="clock">--:--</strong>
+              </div>
+            </div>
+
+            <div class="location-bar">
+              <div class="location-icon">⌖</div>
+              <div>
+                <span>CURRENT LOCATION</span
+                ><strong id="locationValue">Detecting your location…</strong>
+              </div>
+              <button id="locateBtn">Update location</button>
+            </div>
+
+            <div class="availability-card">
+              <div>
+                <div class="section-kicker">SERVICE STATUS</div>
+                <h2>Ready for work?</h2>
+                <p id="availabilityCopy">
+                  You're currently offline. Turn availability on when you're
+                  ready to take jobs.
+                </p>
+              </div>
+              <label class="switch"
+                ><input type="checkbox" id="availabilityToggle" /><span></span
+              ></label>
+              <div class="availability-state" id="availabilityState">
+                OFFLINE
+              </div>
+            </div>
+
+            <div class="stats-grid">
+              <article class="stat-card">
+                <span>THIS MONTH</span
+                ><strong id="monthEarnings">₹24,680</strong
+                ><em>↑ 12.4% vs last month</em>
+              </article>
+              <article class="stat-card">
+                <span>COMPLETED JOBS</span><strong id="jobsCount">38</strong
+                ><em>34 this time last month</em>
+              </article>
+              <article class="stat-card">
+                <span>PROFILE</span><strong id="profileCompletion">86%</strong
+                ><em>4 details left to complete</em>
+              </article>
+              <article class="stat-card">
+                <span>RATING</span
+                ><strong id="rating">4.8<span>/5</span></strong
+                ><em>Based on 126 reviews</em>
+              </article>
+            </div>
+
+            <div class="section-head">
+              <div>
+                <div class="section-kicker">UP NEXT</div>
+                <h2>Your Next Job</h2>
+              </div>
+              <button class="text-btn" data-view="jobs">View all jobs →</button>
+            </div>
+            <article class="next-job">
+              <div class="job-time"><strong>04:30</strong><span>PM</span></div>
+              <div class="job-main">
+                <span class="pill purple">AC REPAIR</span>
+                <h3>AC not cooling</h3>
+                <p>Today · 4:30 PM · 45 min estimate</p>
+                <div class="job-meta">
+                  <span>⌖ 1.8 km away</span><span>₹850 estimated</span>
+                </div>
+              </div>
+              <button class="primary-btn">View job</button>
+            </article>
+
+            <div class="two-col">
+              <section class="panel schedule">
+                <div class="panel-head">
+                  <div>
+                    <div class="section-kicker">TODAY</div>
+                    <h2>Today's Schedule</h2>
+                  </div>
+                  <span class="mono">4 JOBS</span>
+                </div>
+                <div class="timeline">
+                  <div class="timeline-item current">
+                    <time>09:00</time>
+                    <div>
+                      <span class="pill green">COMPLETED</span
+                      ><strong>Kitchen tap repair</strong
+                      ><small>₹450 · 32 min</small>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <time>12:30</time>
+                    <div>
+                      <span class="pill amber">UPCOMING</span
+                      ><strong>Bathroom plumbing</strong
+                      ><small>₹650 · 1 hr</small>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <time>16:30</time>
+                    <div>
+                      <span class="pill purple">UPCOMING</span
+                      ><strong>AC not cooling</strong
+                      ><small>₹850 · 45 min</small>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <time>19:00</time>
+                    <div>
+                      <span class="pill">UPCOMING</span
+                      ><strong>Fan installation</strong
+                      ><small>₹500 · 40 min</small>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="panel performance">
+                <div class="panel-head">
+                  <div>
+                    <div class="section-kicker">YOUR PERFORMANCE</div>
+                    <h2>Keep it up.</h2>
+                  </div>
+                  <span class="trend">GOOD</span>
+                </div>
+                <div class="metric">
+                  <div><span>Rating</span><strong>4.8 / 5</strong></div>
+                  <div class="meter"><i style="width: 96%"></i></div>
+                </div>
+                <div class="metric">
+                  <div><span>Completion rate</span><strong>97%</strong></div>
+                  <div class="meter"><i style="width: 97%"></i></div>
+                </div>
+                <div class="metric">
+                  <div><span>On-time rate</span><strong>94%</strong></div>
+                  <div class="meter"><i style="width: 94%"></i></div>
+                </div>
+                <p class="insight">
+                  Your completion rate is <b>3% above</b> the Sahayak worker
+                  average this month.
+                </p>
+              </section>
+            </div>
+
+            <div class="section-head">
+              <div>
+                <div class="section-kicker">OVERVIEW</div>
+                <h2>Your Sahayak at a glance</h2>
+              </div>
+            </div>
+            <div class="feature-grid">
+              <button class="feature-card" data-view="earnings">
+                <span>₹</span>
+                <div>
+                  <h3>My Earnings</h3>
+                  <p>
+                    Track your income across the year with detailed trends and
+                    service breakdowns.
+                  </p>
+                </div>
+                <b>→</b>
+              </button>
+              <button class="feature-card" data-view="welfare">
+                <span>♡</span>
+                <div>
+                  <h3>Worker Welfare</h3>
+                  <p>
+                    Benefits, training, support and a direct route for
+                    grievances.
+                  </p>
+                </div>
+                <b>→</b>
+              </button>
+              <button class="feature-card" data-view="profile">
+                <span>◉</span>
+                <div>
+                  <h3>My Profile</h3>
+                  <p>
+                    Keep your work details, description and availability
+                    information current.
+                  </p>
+                </div>
+                <b>→</b>
+              </button>
+            </div>
+          </section>
+
+          <section class="view" id="view-earnings">
+            <div class="page-heading">
+              <div>
+                <div class="eyebrow">SAHAYAK / EARNINGS</div>
+                <h1>My Earnings</h1>
+                <p>Understand how your work has translated into income.</p>
+              </div>
+              <select id="rangeSelect">
+                <option value="12">Last 12 months</option>
+                <option value="6">Last 6 months</option>
+                <option value="3">Last 3 months</option>
+                <option value="1">This month</option>
+              </select>
+            </div>
+            <div class="earnings-total">
+              <span>TOTAL EARNINGS</span
+              ><strong id="earningsTotal">₹2,84,650</strong
+              ><em>+18.6% compared with previous period</em>
+            </div>
+            <div class="chart-panel">
+              <div class="panel-head">
+                <div>
+                  <div class="section-kicker">EARNINGS TREND</div>
+                  <h2 id="chartTitle">Last 12 months</h2>
+                </div>
+                <span class="mono">₹ / MONTH</span>
+              </div>
+              <div class="chart-wrap">
+                <svg
+                  id="earningsChart"
+                  viewBox="0 0 1000 330"
+                  preserveAspectRatio="none"
+                ></svg>
+              </div>
+              <div class="chart-labels" id="chartLabels"></div>
+            </div>
+            <div class="earnings-grid">
+              <div class="panel">
+                <div class="panel-head">
+                  <h2>Service mix</h2>
+                  <span class="mono">THIS YEAR</span>
+                </div>
+                <div class="mix">
+                  <div><span>Plumbing</span><b>42%</b></div>
+                  <div class="bar"><i style="width: 42%"></i></div>
+                  <div><span>Electrical</span><b>28%</b></div>
+                  <div class="bar"><i style="width: 28%"></i></div>
+                  <div><span>AC repair</span><b>18%</b></div>
+                  <div class="bar"><i style="width: 18%"></i></div>
+                  <div><span>Other</span><b>12%</b></div>
+                  <div class="bar"><i style="width: 12%"></i></div>
+                </div>
+              </div>
+              <div class="panel">
+                <div class="panel-head">
+                  <h2>Annual snapshot</h2>
+                  <span class="mono">2026</span>
+                </div>
+                <div class="snapshot">
+                  <div>
+                    <span>BEST MONTH</span><strong>₹32,400</strong
+                    ><small>August</small>
+                  </div>
+                  <div>
+                    <span>AVG / JOB</span><strong>₹746</strong
+                    ><small>381 completed jobs</small>
+                  </div>
+                  <div>
+                    <span>GROWTH</span><strong>+18.6%</strong
+                    ><small>year on year</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="prediction">
+              <span class="spark">✦</span>
+              <div>
+                <div class="section-kicker">SAHAYAK INSIGHT</div>
+                <h2>You're on track for a stronger quarter.</h2>
+                <p>
+                  Based on your recent jobs, ratings and earnings pattern, your
+                  next 3-month earnings could land around <b>₹91k–₹1.02L</b>.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section class="view" id="view-jobs">
+            <div class="page-heading">
+              <div>
+                <div class="eyebrow">SAHAYAK / JOBS</div>
+                <h1>My Jobs</h1>
+                <p>Your upcoming, active and completed work.</p>
+              </div>
+              <button class="primary-btn">Availability: On</button>
+            </div>
+            <div class="job-tabs">
+              <button class="active">Upcoming <b>4</b></button
+              ><button>Active <b>1</b></button><button>Completed</button>
+            </div>
+            <div class="jobs-list">
+              <article class="job-row">
+                <div class="job-date"><strong>07</strong><span>SEP</span></div>
+                <div>
+                  <span class="pill purple">AC REPAIR</span>
+                  <h3>AC not cooling</h3>
+                  <p>4:30 PM · 1.8 km · ₹850 estimated</p>
+                </div>
+                <button class="text-btn">Details →</button>
+              </article>
+              <article class="job-row">
+                <div class="job-date"><strong>07</strong><span>SEP</span></div>
+                <div>
+                  <span class="pill amber">PLUMBING</span>
+                  <h3>Bathroom plumbing</h3>
+                  <p>12:30 PM · 2.4 km · ₹650 estimated</p>
+                </div>
+                <button class="text-btn">Details →</button>
+              </article>
+              <article class="job-row">
+                <div class="job-date"><strong>08</strong><span>SEP</span></div>
+                <div>
+                  <span class="pill green">ELECTRICAL</span>
+                  <h3>Fan installation</h3>
+                  <p>10:00 AM · 1.2 km · ₹500 estimated</p>
+                </div>
+                <button class="text-btn">Details →</button>
+              </article>
+            </div>
+          </section>
+
+          <section class="view" id="view-welfare">
+            <div class="page-heading">
+              <div>
+                <div class="eyebrow">SAHAYAK / WELFARE</div>
+                <h1>Worker Welfare</h1>
+                <p>
+                  Support that helps you work with more security and confidence.
+                </p>
+              </div>
+            </div>
+            <div class="welfare-grid">
+              <article class="welfare-card dark">
+                <span>01</span>
+                <h2>Raise a grievance</h2>
+                <p>
+                  Report a payment, customer, safety or platform issue directly
+                  to Sahayak.
+                </p>
+                <button>Raise issue →</button>
+              </article>
+              <article class="welfare-card">
+                <span>02</span>
+                <h2>Training & growth</h2>
+                <p>
+                  Build practical skills and improve the services you offer to
+                  your neighbourhood.
+                </p>
+                <button>Explore training →</button>
+              </article>
+              <article class="welfare-card">
+                <span>03</span>
+                <h2>Benefits & support</h2>
+                <p>
+                  View available worker benefits, emergency support and
+                  community resources.
+                </p>
+                <button>View benefits →</button>
+              </article>
+              <article class="welfare-card">
+                <span>04</span>
+                <h2>Safety centre</h2>
+                <p>
+                  Quick access to safety guidance and support when you're on a
+                  job.
+                </p>
+                <button>Open safety centre →</button>
+              </article>
+            </div>
+          </section>
+
+          <section class="view" id="view-profile">
+            <div class="page-heading">
+              <div>
+                <div class="eyebrow">SAHAYAK / PROFILE</div>
+                <h1>My Profile</h1>
+                <p>
+                  Your profile is how neighbours understand the person behind
+                  the service.
+                </p>
+              </div>
+              <button class="primary-btn" id="editProfileBtn">
+                Edit profile
+              </button>
+            </div>
+            <div class="profile-layout">
+              <section class="panel profile-main">
+                <div class="big-avatar" id="bigAvatar">R</div>
+                <div>
+                  <span class="pill green">VERIFIED WORKER</span>
+                  <h2 id="profileName">Rahul Sharma</h2>
+                  <p id="profileWork">Electrician · 6 years experience</p>
+                </div>
+                <div class="profile-description" id="profileDescription">
+                  Reliable local electrician helping neighbours with everyday
+                  electrical work, installations and repairs.
+                </div>
+              </section>
+              <section class="panel">
+                <div class="panel-head">
+                  <h2>Profile completion</h2>
+                  <strong>86%</strong>
+                </div>
+                <div class="big-meter"><i style="width: 86%"></i></div>
+                <ul class="check-list">
+                  <li>✓ Basic details</li>
+                  <li>✓ Work details</li>
+                  <li>✓ Profile description</li>
+                  <li class="pending">○ Add service photos</li>
+                  <li class="pending">○ Add work availability</li>
+                </ul>
+              </section>
+            </div>
+          </section>
+
+          <section class="view" id="view-help">
+            <div class="page-heading">
+              <div>
+                <div class="eyebrow">SAHAYAK / SUPPORT</div>
+                <h1>Need Help?</h1>
+                <p>We're here when something doesn't go as planned.</p>
+              </div>
+            </div>
+            <div class="help-grid">
+              <article class="welfare-card">
+                <h2>Worker support</h2>
+                <p>
+                  Talk to the Sahayak support team about jobs, payments or
+                  account issues.
+                </p>
+                <button>Contact support →</button>
+              </article>
+              <article class="welfare-card">
+                <h2>Safety emergency</h2>
+                <p>Access urgent safety assistance while you're working.</p>
+                <button>Get help →</button>
+              </article>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <div class="modal" id="profileModal">
+      <div class="modal-card">
+        <button class="modal-close" id="closeModal">×</button>
+        <div class="eyebrow">EDIT PROFILE</div>
+        <h2>Keep your profile current.</h2>
+        <label>Full name<input id="editName" value="Rahul Sharma" /></label>
+        <label
+          >Work & experience<input
+            id="editWork"
+            value="Electrician · 6 years experience"
+        /></label>
+        <label
+          >Description<textarea id="editDescription">
+Reliable local electrician helping neighbours with everyday electrical work, installations and repairs.</textarea
+          >
+        </label>
+        <div class="modal-actions">
+          <button class="text-btn" id="cancelEdit">Cancel</button
+          ><button class="primary-btn" id="saveProfile">Save changes</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="incoming-job" id="incomingJob" hidden>
+      <div class="incoming-job-card">
+        <div class="incoming-top">
+          <span class="eyebrow">NEW SERVICE REQUEST</span
+          ><span class="incoming-live">NOW</span>
+        </div>
+        <h2 id="incomingService">New service</h2>
+        <p id="incomingProblem">Customer needs help nearby.</p>
+        <div class="incoming-details">
+          <span><b id="incomingDistance">Nearby</b><small>away</small></span
+          ><span><b id="incomingPayout">₹448</b><small>estimated</small></span
+          ><span
+            ><b id="incomingCustomer">Ananya</b><small>customer</small></span
+          >
+        </div>
+        <div class="incoming-actions">
+          <button id="declineJob" class="incoming-decline">Decline</button
+          ><button id="acceptJob" class="incoming-accept">Accept job</button>
+        </div>
+      </div>
+    </div>
+    <style>
+      .incoming-job {
+        position: fixed;
+        inset: 0;
+        background: rgba(23, 16, 43, 0.38);
+        backdrop-filter: blur(6px);
+        z-index: 1000;
+        display: grid;
+        place-items: center;
+        padding: 20px;
+      }
+      .incoming-job[hidden] {
+        display: none;
+      }
+      .incoming-job-card {
+        width: min(440px, 100%);
+        background: #fff;
+        border-radius: 24px;
+        padding: 25px;
+        box-shadow: 0 35px 90px rgba(23, 16, 43, 0.28);
+      }
+      .incoming-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .incoming-live {
+        font:
+          700 10px "IBM Plex Mono",
+          monospace;
+        color: #29966b;
+        background: #eef9f4;
+        padding: 7px 9px;
+        border-radius: 999px;
+      }
+      .incoming-job-card h2 {
+        font-size: 28px;
+        margin: 12px 0 5px;
+      }
+      .incoming-job-card p {
+        color: #6f667d;
+        margin: 0 0 20px;
+      }
+      .incoming-details {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+      .incoming-details span {
+        background: #f7f3fb;
+        border-radius: 14px;
+        padding: 12px;
+      }
+      .incoming-details b {
+        display: block;
+        font-size: 14px;
+      }
+      .incoming-details small {
+        color: #7a7184;
+        font-size: 10px;
+      }
+      .incoming-actions {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+      }
+      .incoming-actions button {
+        flex: 1;
+        border: 0;
+        border-radius: 13px;
+        padding: 13px;
+        font-weight: 800;
+      }
+      .incoming-decline {
+        background: #f2edf7;
+        color: #6e2fd9;
+      }
+      .incoming-accept {
+        background: #6e2fd9;
+        color: #fff;
+      }
+    </style>
+    <button class="chat-launcher" id="chatLauncher" hidden>
+      <svg viewBox="0 0 24 24">
+        <path d="M5 5.5h14v10H9l-4 3v-13z" />
+        <path d="M8 9.5h8M8 12.5h5" /></svg
+      >Message customer
+    </button>
+    <section class="chat-panel" id="chatPanel" hidden>
+      <header class="chat-head">
+        <div>
+          <strong>Chat with customer</strong
+          ><small>Coordinate the service before navigation</small>
+        </div>
+        <button class="chat-close" id="chatClose" aria-label="Close chat">
+          &times;
+        </button>
+      </header>
+      <div class="chat-messages" id="chatMessages">
+        <div class="chat-empty">Accept a service to open chat.</div>
+      </div>
+      <div class="chat-typing" id="chatTyping"></div>
+      <div class="chat-error" id="chatError"></div>
+      <form class="chat-form" id="chatForm">
+        <input
+          id="chatInput"
+          autocomplete="off"
+          placeholder="Write a message..."
+        /><button type="submit">Send</button>
+      </form>
+    </section>
+    <div class="toast" id="toast"></div>
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/worker-dashboard.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="frontend/navigation/chat.js"></script>
+  </body>
+</html>

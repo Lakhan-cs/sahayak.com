@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Sahayak — Finding Your Match</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="flow.css" />
+  </head>
+  <body>
+    <header class="flow-header">
+      <a class="flow-brand" href="customer-home.html"
+        ><span class="flow-mark"></span>Sahayak</a
+      >
+    </header>
+    <main class="flow-wrap">
+      <div class="flow-progress">
+        <div class="progress-step done">
+          <span class="progress-dot">✓</span><span>Describe</span>
+        </div>
+        <div class="progress-line"></div>
+        <div class="progress-step done">
+          <span class="progress-dot">✓</span><span>Schedule</span>
+        </div>
+        <div class="progress-line"></div>
+        <div class="progress-step active">
+          <span class="progress-dot">3</span><span>Match</span>
+        </div>
+        <div class="progress-line"></div>
+        <div class="progress-step">
+          <span class="progress-dot">4</span><span>Review</span>
+        </div>
+      </div>
+
+      <section class="matching-screen" id="matchingScreen">
+        <span class="eyebrow">Sahayak matching</span>
+        <h1 class="flow-title">Finding your<br />best local match.</h1>
+        <p class="flow-subtitle" style="margin-left: auto; margin-right: auto">
+          We're comparing the request with nearby workers who fit the job,
+          timing and location.
+        </p>
+        <div class="match-orbit">
+          <div class="match-core">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 3v4M12 17v4M3 12h4M17 12h4" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+          </div>
+        </div>
+        <div class="matching-list" id="matchingList">
+          <div class="match-row loading">
+            <span>Understanding your job description</span
+            ><span class="status">…</span>
+          </div>
+          <div class="match-row loading">
+            <span>Checking worker availability</span
+            ><span class="status">…</span>
+          </div>
+          <div class="match-row loading">
+            <span>Comparing distance & location</span
+            ><span class="status">…</span>
+          </div>
+          <div class="match-row loading">
+            <span>Matching skills & experience</span
+            ><span class="status">…</span>
+          </div>
+          <div class="match-row loading">
+            <span>Ranking customer ratings</span><span class="status">…</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="match-result" id="matchResult">
+        <span class="eyebrow">Best available match</span>
+        <h1 class="flow-title">Someone nearby<br />fits the job.</h1>
+        <p class="flow-subtitle">
+          This recommendation is based on a simulated Sahayak matching score
+          using the request, location, availability, skills and worker quality.
+        </p>
+        <div class="worker-card">
+          <span class="best-badge">94% best match</span>
+          <div class="worker-main">
+            <div class="worker-avatar">RK</div>
+            <div>
+              <h3>Rakesh Kumar</h3>
+              <div class="worker-role">
+                Plumbing Specialist · 6 years experience
+              </div>
+            </div>
+            <div class="match-score">
+              <strong>94%</strong><span>MATCH SCORE</span>
+            </div>
+          </div>
+          <div class="worker-meta">
+            <div><small>Rating</small><strong>★ 4.9 · 126 reviews</strong></div>
+            <div><small>Distance</small><strong>1.8 km away</strong></div>
+            <div>
+              <small>Availability</small
+              ><strong id="availabilityText">Available now</strong>
+            </div>
+          </div>
+          <div class="reasons">
+            <h4>Why Sahayak picked Rakesh</h4>
+            <div class="reason-list">
+              <span class="reason">✓ Plumbing expertise</span>
+              <span class="reason">✓ Problem fit</span>
+              <span class="reason">✓ Nearby</span>
+              <span class="reason">✓ Available</span>
+              <span class="reason">✓ Strong rating</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="alternatives">
+          <h3>Other suitable workers</h3>
+          <div class="alt-grid">
+            <div class="alt-card">
+              <div class="alt-top">
+                <div class="alt-avatar">AS</div>
+                <div>
+                  <strong>Amit Sharma</strong><span>4.7 ★ · 3.2 km</span>
+                </div>
+              </div>
+              <div class="alt-score">88% match</div>
+            </div>
+            <div class="alt-card">
+              <div class="alt-top">
+                <div class="alt-avatar">SM</div>
+                <div>
+                  <strong>Suresh Meena</strong><span>4.8 ★ · 6.1 km</span>
+                </div>
+              </div>
+              <div class="alt-score">82% match</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flow-actions">
+          <button class="secondary-btn" onclick="history.back()">
+            Change schedule</button
+          ><button class="primary-btn" id="continueReview">
+            Review Booking
+            <svg viewBox="0 0 24 24">
+              <path d="M5 12h14" />
+              <path d="m13 6 6 6-6 6" />
+            </svg>
+          </button>
+        </div>
+      </section>
+    </main>
+    <script src="worker-match.js"></script>
+  </body>
+</html>

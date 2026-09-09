@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Sahayak — Review Booking</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="flow.css" />
+  </head>
+  <body>
+    <header class="flow-header">
+      <a class="flow-brand" href="customer-home.html"
+        ><span class="flow-mark"></span>Sahayak</a
+      ><a class="flow-back" href="javascript:history.back()">← Back</a>
+    </header>
+    <main class="flow-wrap">
+      <div class="flow-progress">
+        <div class="progress-step done">
+          <span class="progress-dot">✓</span><span>Describe</span>
+        </div>
+        <div class="progress-line"></div>
+        <div class="progress-step done">
+          <span class="progress-dot">✓</span><span>Schedule</span>
+        </div>
+        <div class="progress-line"></div>
+        <div class="progress-step done">
+          <span class="progress-dot">✓</span><span>Match</span>
+        </div>
+        <div class="progress-line"></div>
+        <div class="progress-step active">
+          <span class="progress-dot">4</span><span>Review</span>
+        </div>
+      </div>
+      <span class="eyebrow">Almost there</span>
+      <h1 class="flow-title">Review your<br />booking.</h1>
+      <p class="flow-subtitle">
+        Check the details before you send the request to your selected worker.
+      </p>
+
+      <div class="review-grid">
+        <div class="review-card">
+          <h3>Service details</h3>
+          <div class="review-item">
+            <div class="review-label">Service</div>
+            <div class="review-value" id="service"></div>
+          </div>
+          <div class="review-item">
+            <div class="review-label">Problem</div>
+            <div class="review-value review-muted" id="description"></div>
+          </div>
+          <div class="review-item">
+            <div class="review-label">Photos</div>
+            <div class="review-value review-muted" id="photoText"></div>
+          </div>
+          <div class="review-item">
+            <div class="review-label">Worker</div>
+            <div class="review-value">Rakesh Kumar</div>
+            <div class="review-muted">★ 4.9 · 126 reviews · 1.8 km away</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="review-card">
+            <h3>When & where</h3>
+            <div class="review-item">
+              <div class="review-label">Schedule</div>
+              <div class="review-value" id="schedule"></div>
+            </div>
+            <div class="review-item">
+              <div class="review-label">Location</div>
+              <div class="review-value" id="location"></div>
+              <div class="review-muted">Current service location</div>
+            </div>
+          </div>
+          <div class="review-card price-card">
+            <h3>Price estimate</h3>
+            <div class="price-row">
+              <span>Service charge</span><strong>₹399</strong>
+            </div>
+            <div class="price-row">
+              <span>Visit / platform fee</span><strong>₹49</strong>
+            </div>
+            <div class="price-total">
+              <span>Total</span><strong>₹448</strong>
+            </div>
+            <div class="secure-note">
+              Final charges may vary if additional work is requested. Any change
+              can be reviewed before extra work begins.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow-actions">
+        <button class="secondary-btn" onclick="history.back()">Go back</button>
+        <button class="primary-btn" id="confirmBtn">
+          Confirm Booking
+          <svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6" /></svg>
+        </button>
+      </div>
+    </main>
+    <script src="review-booking.js"></script>
+  </body>
+</html>

@@ -1,0 +1,416 @@
+<!-- <!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>DemandAI Dashboard</title> -->
+<!-- <link rel="stylesheet" href="./static/style.css"/> -->
+<!-- <link rel="stylesheet" href="./static/dashboard.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  </head>
+  <body>
+    <nav class="sidebar">
+    <div class="brand">Sahayak</div>
+      <a href="./homepage.html">Home</a>
+      <a href="./dashboard.html">Dashboard</a>
+      <a href="./analysis.html">Demand Forecast</a>
+      <a href="./service_forecast.html">Service Forecast</a>
+      <a href="./area_stats.html">Location Forecast</a> -->
+<!-- <a href="./worker_recommendations.html">Worker Recommendation</a> -->
+<!-- <a href="./dashboard.html">Analytics</a> -->
+<!-- </nav>
+
+    <main class="page">
+
+      <div class="page-head">
+        <div>
+          <p class="eyebrow">SIH 26089</p>
+          <h1>Home-Service Demand Intelligence</h1>
+          <p class="muted">
+            UrbanServe-heavy demand forecasting and worker planning.
+          </p>
+        </div>
+      </div>
+      <section class="stats-grid" id="summaryCards">
+        <div class="stat-card">
+          <span>Total requests</span><strong id="totalRequests">–</strong>
+        </div>
+        <div class="stat-card">
+          <span>Completed requests</span
+          ><strong id="completed_requests">–</strong>
+        </div>
+        <div class="stat-card">
+          <span>Cancelled requests</span
+          ><strong id="cancelled_requests">–</strong>
+        </div>
+        <div class="stat-card">
+          <span>Geography</span><strong id="geography">–</strong>
+        </div>
+        <div class="stat-card">
+          <span>Services</span><strong id="services">–</strong>
+        </div>
+        <div class="stat-card">
+          <span>Areas</span><strong id="areas">–</strong>
+        </div>
+      </section>
+      <section class="panel-grid">
+        <div class="panel">
+          <h2>Top service</h2>
+          <div class="metric-big" id="topService">–</div>
+          <p id="topServiceRequests" class="muted"></p>
+        </div>
+        <div class="panel">
+          <h2>Top area</h2>
+          <div class="metric-big" id="topArea">–</div>
+          <p id="topAreaRequests" class="muted"></p>
+        </div><br>
+
+
+        Analysis part
+        <p class="eyebrow">FORECASTING</p><h1>Area + Service Demand Forecast</h1>
+        <div class="filters">
+          <label>Area<select id="area"></select></label>
+          <label>Service<select id="service"></select></label>
+          <button id="forecastBtn">Generate Forecast</button>
+        </div>
+        <div class="stats-grid compact">
+          <div class="stat-card"><span>7-day demand</span><strong id="totalForecast">–</strong></div>
+          <div class="stat-card"><span>Available now</span><strong id="current_available_workers">–</strong></div>
+          <div class="stat-card"><span>Workers required</span><strong id="required_Workers">–</strong></div>
+          <div class="stat-card"><span>Capacity gap</span><strong id="capacity_Gap">–</strong></div>
+        </div>
+        <section class="panel chart-panel"><div class="panel-title"><div><h2>Next 7 days</h2><p id="forecastStatus" class="muted"></p></div><span id="modelBadge" class="badge">–</span></div><canvas id="forecastChart"></canvas></section>
+
+
+        service based
+        <p class="eyebrow">SERVICE VIEW</p><h1>Service Demand</h1>
+        <div class="filters"><label>Service<select id="serviceSelect"></select></label></div>
+        <section class="panel chart-panel"><h2>Next 7-day service forecast</h2><canvas id="nextWeekServiceChart"></canvas></section>
+        <section class="panel chart-panel"><h2>Weekly request history</h2><canvas id="weeklyServiceChart"></canvas></section>
+
+
+        Service + area forecast
+        <p class="eyebrow">LOCATION VIEW</p><h1>Area Demand Analysis</h1>
+        <div class="filters"><label>Area<select id="areaSelect"></select></label></div>
+        <div class="stats-grid compact">
+          <div class="stat-card"><span>Previous week</span><strong id="lastWeek">–</strong></div>
+          <div class="stat-card"><span>Latest week</span><strong id="thisWeek">–</strong></div>
+          <div class="stat-card"><span>Next 7 days</span><strong id="nextWeek">–</strong></div>
+          <div class="stat-card"><span>Growth</span><strong id="growthRate">–</strong></div>
+        </div>
+        <section class="panel chart-panel"><canvas id="areaDemandChart"></canvas></section>
+
+    </main>
+    <script src="./static/dashboard.js"></script>
+    <script src="./static/analysis.js"></script>
+    <script src="./static/service_forecast.js"></script>
+    <script src="./static/area_stats.js"></script>
+  </body>
+</html> -->
+
+<!--newwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww-->
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <title>Sahayak — Demand Intelligence</title>
+
+    <!-- <link
+        rel="stylesheet"
+        href="./static/style.css"
+    > -->
+    <link rel="stylesheet" href="./static/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+
+  <body>
+    <!-- =====================================================
+         NAVIGATION
+    ====================================================== -->
+
+    <nav class="sidebar">
+      <div class="brand">Sahayak</div>
+
+      <a href="./homepage.html">Home</a>
+
+      <a href="./dashboard.html">Dashboard</a>
+
+      <a href="./analysis.html">Demand Forecast</a>
+
+      <a href="./service_forecast.html">Service Forecast</a>
+
+      <a href="./area_stats.html">Location Forecast</a>
+    </nav>
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="page">
+      <!-- =================================================
+             DASHBOARD HEADER
+        ================================================== -->
+
+      <div class="page-head">
+        <p class="eyebrow">SIH 26089</p>
+
+        <h1>Home-Service Demand Intelligence</h1>
+
+        <p class="muted">
+          UrbanServe-heavy demand forecasting and worker planning.
+        </p>
+      </div>
+
+      <!-- =================================================
+             OVERVIEW STATS
+        ================================================== -->
+
+      <section class="dashboard-section overview-section">
+        <section class="stats-grid" id="summaryCards">
+          <div class="stat-card">
+            <span> Total requests </span>
+
+            <strong id="totalRequests"> – </strong>
+          </div>
+
+          <div class="stat-card">
+            <span> Completed requests </span>
+
+            <strong id="completed_requests"> – </strong>
+          </div>
+
+          <div class="stat-card">
+            <span> Cancelled requests </span>
+
+            <strong id="cancelled_requests"> – </strong>
+          </div>
+
+          <div class="stat-card">
+            <span> Geography </span>
+
+            <strong id="geography"> – </strong>
+          </div>
+
+          <div class="stat-card">
+            <span> Services </span>
+
+            <strong id="services"> – </strong>
+          </div>
+
+          <div class="stat-card">
+            <span> Areas </span>
+
+            <strong id="areas"> – </strong>
+          </div>
+        </section>
+
+        <!-- TOP SERVICE / AREA -->
+
+        <div class="top-summary-grid">
+          <div class="panel">
+            <h2>Top service</h2>
+
+            <div class="metric-big" id="topService">–</div>
+
+            <p id="topServiceRequests" class="muted"></p>
+          </div>
+
+          <div class="panel">
+            <h2>Top area</h2>
+
+            <div class="metric-big" id="topArea">–</div>
+
+            <p id="topAreaRequests" class="muted"></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================
+             AREA + SERVICE DEMAND FORECAST
+        ================================================== -->
+
+      <section
+        class="dashboard-section forecast-section"
+        id="areaServiceForecast"
+      >
+        <div class="section-heading">
+          <p class="eyebrow">FORECASTING</p>
+
+          <h1>Area + Service Demand Forecast</h1>
+        </div>
+
+        <!-- FILTERS -->
+
+        <div class="filters forecast-filters">
+          <label>
+            Area
+
+            <select id="area"></select>
+          </label>
+
+          <label>
+            Service
+
+            <select id="service"></select>
+          </label>
+
+          <button id="forecastBtn">Generate Forecast</button>
+        </div>
+
+        <!-- FORECAST STATS -->
+
+        <section class="stats-grid compact" id="forecastStats">
+          <div class="stat-card">
+            <span> 7-day demand </span>
+
+            <strong id="totalForecast"> – </strong>
+          </div>
+
+          <div class="stat-card">
+            <span> Available now </span>
+
+            <strong id="current_available_workers"> – </strong>
+          </div>
+
+          <div class="stat-card">
+            <span> Workers required </span>
+
+            <strong id="required_Workers"> – </strong>
+          </div>
+
+          <div class="stat-card">
+            <span> Capacity gap </span>
+
+            <strong id="capacity_Gap"> – </strong>
+          </div>
+        </section>
+
+        <!-- FORECAST CHART -->
+
+        <section class="panel chart-panel">
+          <div class="panel-title">
+            <div>
+              <h2>Next 7 days</h2>
+
+              <p id="forecastStatus" class="muted"></p>
+            </div>
+
+            <span id="modelBadge" class="badge"> – </span>
+          </div>
+
+          <canvas id="forecastChart"></canvas>
+        </section>
+      </section>
+
+      <!-- =================================================
+             SERVICE DEMAND
+        ================================================== -->
+
+      <section
+        class="dashboard-section service-section"
+        id="serviceDemandSection"
+      >
+        <div class="section-heading">
+          <p class="eyebrow">SERVICE VIEW</p>
+
+          <h1>Service Demand</h1>
+        </div>
+
+        <div class="filters">
+          <label>
+            Service
+
+            <select id="serviceSelect"></select>
+          </label>
+        </div>
+
+        <section class="panel chart-panel">
+          <h2>Next 7-day service forecast</h2>
+
+          <canvas id="nextWeekServiceChart"></canvas>
+        </section>
+
+        <section class="panel chart-panel">
+          <h2>Weekly request history</h2>
+
+          <canvas id="weeklyServiceChart"></canvas>
+        </section>
+      </section>
+
+      <!-- =================================================
+             AREA DEMAND ANALYSIS
+        ================================================== -->
+
+      <section class="dashboard-section area-section" id="areaDemandSection">
+        <div class="section-heading">
+          <p class="eyebrow">LOCATION VIEW</p>
+
+          <h1>Area Demand Analysis</h1>
+        </div>
+
+        <!-- AREA FILTER -->
+
+        <div class="filters">
+          <label>
+            Area
+
+            <select id="areaSelect"></select>
+          </label>
+        </div>
+
+        <!-- AREA STATS -->
+
+        <section class="stats-grid compact" id="areaStats">
+          <div class="stat-card">
+            <span> Previous week </span>
+
+            <strong id="lastWeek"> – </strong>
+          </div>
+
+          <div class="stat-card">
+            <span> Latest week </span>
+
+            <strong id="thisWeek"> – </strong>
+          </div>
+
+          <div class="stat-card">
+            <span> Next 7 days </span>
+
+            <strong id="nextWeek"> – </strong>
+          </div>
+
+          <div class="stat-card">
+            <span> Growth </span>
+
+            <strong id="growthRate"> – </strong>
+          </div>
+        </section>
+
+        <!-- AREA CHART -->
+
+        <section class="panel chart-panel">
+          <h2>Area demand trend</h2>
+
+          <canvas id="areaDemandChart"></canvas>
+        </section>
+      </section>
+    </main>
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="./static/dashboard.js"></script>
+
+    <script src="./static/analysis.js"></script>
+
+    <script src="./static/service_forecast.js"></script>
+
+    <script src="./static/area_stats.js"></script>
+  </body>
+</html>

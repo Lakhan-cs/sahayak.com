@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Sahayak - Complete service</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/frontend/navigation/completion.css" />
+  </head>
+  <body>
+    <div class="completion-shell">
+      <header class="completion-top">
+        <div class="completion-brand">
+          <span class="brand-mark"></span>Sahayak
+        </div>
+        <span class="completion-context"
+          >Worker workspace / Service closeout</span
+        >
+      </header>
+      <main class="completion-wrap">
+        <section class="completion-intro">
+          <div class="success-mark">✓</div>
+          <span class="eyebrow">ARRIVED AT CUSTOMER</span>
+          <h1>Nice work. Let's close this job.</h1>
+          <p>
+            Confirm the service details below, add a short note if needed, and
+            mark the request complete when the customer is satisfied.
+          </p>
+        </section>
+        <section class="completion-grid">
+          <article class="completion-card">
+            <h2>Service summary</h2>
+            <div class="job-summary">
+              <div class="summary-row">
+                <span>Service</span
+                ><strong id="serviceName">Home service</strong>
+              </div>
+              <div class="summary-row">
+                <span>Customer</span><strong id="customerName">Ananya</strong>
+              </div>
+              <div class="summary-row">
+                <span>Location</span
+                ><strong id="customerAddress">Gurgaon, Haryana</strong>
+              </div>
+              <div class="summary-row">
+                <span>Estimated total</span
+                ><strong id="serviceAmount">₹448</strong>
+              </div>
+            </div>
+            <div class="worker-note">
+              Payment is collected from the customer after you finish the
+              service.
+            </div>
+          </article>
+          <article class="completion-card">
+            <h2>Ready to complete?</h2>
+            <form class="completion-form" id="completionForm">
+              <label for="completionNote"
+                >Completion note
+                <textarea
+                  id="completionNote"
+                  placeholder="Add any useful handover note for the customer..."
+                ></textarea>
+              </label>
+              <div
+                class="status-message"
+                id="completionStatus"
+                aria-live="polite"
+              ></div>
+              <div class="action-row">
+                <button class="primary-action" type="submit">
+                  Mark job complete</button
+                ><button
+                  class="secondary-action"
+                  type="button"
+                  id="backToNavigation"
+                >
+                  Back to navigation
+                </button>
+              </div>
+            </form>
+          </article>
+        </section>
+      </main>
+    </div>
+    <script src="/frontend/navigation/worker-completion.js"></script>
+  </body>
+</html>

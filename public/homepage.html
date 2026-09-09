@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sahayak — Your community, your services, one platform.</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="./static/search_ai.css">
+       
+    <script src="https://cdn.botpress.cloud/webchat/v3.7/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2026/09/08/09/20260908094934-PDTW95CW.js" defer></script>
+ 
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <header>
+        <div class="nav">
+
+            <div class="brand">
+                <span class="brand-mark"></span>
+                Sahayak
+            </div>
+
+            <nav class="nav-links">
+                <a href="homepage.html">Home</a>
+                <a href="#services">Services</a>
+                <a href="#how">How it works</a>
+                <a href="#why">About</a>
+                <a href="dashboard.html">Dashboard</a>
+            </nav>
+
+            <div class="nav-right">
+                <a class="nav-login" href="login.html">Log in</a>
+                <a class="nav-signup" href="signup.html">Sign up</a>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero">
+
+        <div class="wrap hero-grid">
+
+            <!-- HERO CONTENT -->
+
+            <div class="hero-content">
+
+                <!-- AI SERVICE SEARCH -->
+                <div class="ai-search">
+
+                    <div class="ai-search-label">
+                        <span>✦</span>
+                        AI Service Search
+                    </div>
+
+                    <div class="ai-search-box">
+
+                        <input
+                            id="searchInput"
+                            type="text"
+                            placeholder="What service do you need?"
+                            autocomplete="off"
+                        >
+
+                        <button
+                            type="button"
+                            onclick="searchService()"
+                        >
+                            Search
+                        </button>
+
+                    </div>
+
+                    <div id="result"></div>
+
+                </div>
+
+                <span class="eyebrow">
+                    Local services, one platform
+                </span>
+
+                <h1>
+                    Your community,<br>
+                    your services,<br>
+                    <em>one platform.</em>
+                </h1>
+
+                <p class="lede">
+                    Find trusted local providers, book household services in minutes,
+                    and support the skilled workers right around the corner.
+                </p>
+
+                <div class="hero-ctas">
+
+                    <a class="btn btn-primary" href="#services">
+                        Find a service
+                    </a>
+
+                    <a class="btn btn-outline" href="signup.html?role=worker">
+                        Become a worker
+                    </a>
+
+                </div>
+
+
+                <!-- TRUST ITEMS -->
+
+                <div class="trust-row">
+
+                    <div class="trust-item">
+
+                        <div class="ic">
+
+                            <svg
+                                width="18"
+                                height="18"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round">
+
+                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+
+                            </svg>
+
+                        </div>
+
+                        <div>
+                            <div class="tt">Fair, upfront pricing</div>
+                            <div class="ts">no surprise call-out fees</div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="trust-item">
+
+                        <div class="ic">
+
+                            <svg
+                                width="18"
+                                height="18"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round">
+
+                                <circle cx="12" cy="12" r="9" />
+
+                                <path d="M12 7v5l3 3" />
+
+                            </svg>
+
+                        </div>
+
+                        <div>
+                            <div class="tt">24/7 support</div>
+                            <div class="ts">real people, anytime</div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 HERO VISUAL
+            ========================== -->
+
+            <div class="hero-visual" id="heroVisual">
+              <div class="collage-stage">
+
+                <!--
+                    IMPORTANT:
+                    This SVG is the decorative layer.
+                    It sits behind the four cards.
+                -->
+
+                <svg
+                    class="collage-sketch"
+                    viewBox="0 0 620 470"
+                    aria-hidden="true">
+
+                    <!-- MAIN ORGANIC ORBIT -->
+
+                    <path
+                        class="sketch-path"
+                        d="
+                        M92 105
+                        C135 45, 225 30, 305 65
+                        C385 100, 490 65, 540 120
+                        C585 170, 555 235, 520 275
+                        C485 315, 510 375, 450 410
+                        C375 450, 285 425, 225 390
+                        C165 355, 100 365, 75 315
+                        C50 265, 90 220, 82 175
+                        C75 145, 75 125, 92 105Z
+                        " />
+
+
+                    <!-- INNER LOOSE ORBIT -->
+
+                    <path
+                        class="sketch-path sketch-path-light"
+                        d="
+                        M125 175
+                        C180 125, 245 120, 300 150
+                        C355 180, 420 155, 475 185
+                        C525 212, 520 265, 480 300
+                        C440 335, 365 315, 305 345
+                        C245 375, 180 350, 145 310
+                        " />
+
+
+                    <!-- HOUSE — LEFT / ABOVE CLEANING -->
+
+                    <path
+                        class="sketch-line"
+                        d="
+                        M48 155
+                        L82 122
+                        L116 155
+
+                        M57 147
+                        V185
+                        H107
+                        V147
+
+                        M72 185
+                        V161
+                        H91
+                        V185
+                        " />
+
+                    <path
+                        class="sketch-line"
+                        d="M43 157 H121" />
+
+
+                    <!-- LOCATION PIN — UPPER RIGHT -->
+
+                    <path
+                        class="sketch-line"
+                        d="
+                        M520 72
+                        C520 55, 533 42, 548 42
+                        C563 42, 576 55, 576 72
+                        C576 93, 548 116, 548 116
+                        C548 116, 520 93, 520 72Z
+                        " />
+
+                    <circle
+                        class="sketch-line"
+                        cx="548"
+                        cy="71"
+                        r="7" />
+
+
+                    <!-- LEAF — RIGHT -->
+
+                    <path
+                        class="sketch-line"
+                        d="
+                        M500 300
+                        C530 268, 558 270, 570 282
+                        C560 312, 535 326, 502 322
+
+                        M502 322
+                        C525 304, 548 288, 567 279
+
+                        M530 306
+                        L544 316
+
+                        M542 293
+                        L555 301
+                        " />
+
+
+                    <!-- WRENCH — LOWER LEFT -->
+
+                    <path
+                        class="sketch-line"
+                        d="
+                        M55 330
+                        C46 322, 44 310, 50 301
+                        C57 292, 69 292, 78 298
+
+                        L67 309
+                        L78 320
+                        L89 309
+
+                        C93 319, 90 331, 82 337
+                        C73 344, 63 338, 55 330Z
+
+                        M78 320
+                        L120 362
+
+                        C125 367, 125 374, 120 379
+                        C115 384, 108 383, 103 378
+
+                        L63 338
+                        " />
+
+
+                    <!-- PAINT BRUSH — LOWER MIDDLE -->
+
+                    <path
+                        class="sketch-line"
+                        d="
+                        M245 395
+                        L273 367
+
+                        M269 371
+                        L288 390
+
+                        M253 405
+                        L282 376
+
+                        M245 395
+                        L233 407
+
+                        C227 413, 228 421, 234 425
+                        C240 429, 248 427, 252 421
+
+                        L264 409
+                        " />
+
+
+                    <!-- STAR 1 -->
+
+                    <path
+                        class="sketch-star"
+                        d="
+                        M190 70
+                        L195 83
+                        L208 88
+                        L195 93
+                        L190 106
+                        L185 93
+                        L172 88
+                        L185 83Z
+                        " />
+
+
+                    <!-- STAR 2 -->
+
+                    <path
+                        class="sketch-star"
+                        d="
+                        M570 170
+                        L574 181
+                        L585 185
+                        L574 189
+                        L570 200
+                        L566 189
+                        L555 185
+                        L566 181Z
+                        " />
+
+
+                    <!-- STAR 3 -->
+
+                    <path
+                        class="sketch-star"
+                        d="
+                        M400 405
+                        L404 416
+                        L415 420
+                        L404 424
+                        L400 435
+                        L396 424
+                        L385 420
+                        L396 416Z
+                        " />
+
+
+                    <!-- SMALL SPARKS -->
+
+                    <path
+                        class="sketch-spark"
+                        d="M165 101 V115 M158 108 H172" />
+
+                    <path
+                        class="sketch-spark"
+                        d="M300 45 V59 M293 52 H307" />
+
+                    <path
+                        class="sketch-spark"
+                        d="M455 98 V112 M448 105 H462" />
+
+                    <path
+                        class="sketch-spark"
+                        d="M175 245 V259 M168 252 H182" />
+
+                    <path
+                        class="sketch-spark"
+                        d="M470 350 V364 M463 357 H477" />
+
+
+                    <!-- TINY DOTS -->
+
+                    <circle
+                        class="sketch-dot"
+                        cx="165"
+                        cy="108"
+                        r="3" />
+
+                    <circle
+                        class="sketch-dot"
+                        cx="455"
+                        cy="105"
+                        r="3" />
+
+                    <circle
+                        class="sketch-dot"
+                        cx="175"
+                        cy="320"
+                        r="3" />
+
+                    <circle
+                        class="sketch-dot"
+                        cx="470"
+                        cy="355"
+                        r="3" />
+
+                </svg>
+
+
+                <!-- =========================
+                     FOUR EXISTING CARDS
+                     DO NOT CHANGE
+                ========================== -->
+
+                <div class="collage-card card-a">
+
+                    <div class="collage-icon">⌂</div>
+
+                    <span>Home cleaning</span>
+
+                </div>
+
+
+                <div class="collage-card card-b">
+
+                    <div class="collage-icon">ϟ</div>
+
+                    <span>Electrical work</span>
+
+                </div>
+
+
+                <div class="collage-card card-c">
+
+                    <div class="collage-icon">⌁</div>
+
+                    <span>Handyman fixes</span>
+
+                </div>
+
+
+                <div class="collage-card card-d">
+
+                    <div class="collage-icon">⌖</div>
+
+                    <span>Gardening</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SERVICES
+    ========================== -->
+
+    <section class="section" id="services">
+
+        <div class="wrap">
+
+            <div class="section-head">
+
+                <h2>Popular services.</h2>
+
+                <button class="view-all">
+
+                    View all
+
+                    <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.4"
+                        stroke-linecap="round"
+                        stroke-linejoin="round">
+
+                        <path d="M5 12h14M13 6l6 6-6 6" />
+
+                    </svg>
+
+                </button>
+
+            </div>
+
+
+            <div
+                class="service-grid"
+                id="serviceGrid">
+
+                <!-- cards injected by homepage.js -->
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         WHY SAHAYAK
+    ========================== -->
+
+    <section class="section why" id="why">
+
+        <div class="wrap">
+
+            <div class="why-head">
+
+                <span class="eyebrow">
+                    WHY SAHAYAK
+                </span>
+
+                <h2>
+                    More than a service —
+                    <br>
+                    it's a <em>community.</em>
+                </h2>
+
+            </div>
+
+
+            <div
+                class="stat-row"
+                id="statRow">
+
+                <div class="stat-card">
+                    <div class="stat-num">500,000+</div>
+                    <div class="stat-label">homes that trust us</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-num">1,000,000+</div>
+                    <div class="stat-label">hours saved</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-num">10,000+</div>
+                    <div class="stat-label">local workers</div>
+                </div>
+
+            </div>
+
+
+            <div class="ticker">
+
+                <div class="ticker-track">
+
+                    <span>CONNECTING PEOPLE</span>
+                    <i>✦</i>
+
+                    <span>EMPOWERING LOCAL SKILLS</span>
+                    <i>✦</i>
+
+                    <span>MAKING EVERYDAY SERVICES SIMPLER</span>
+                    <i>✦</i>
+
+                    <span>CONNECTING PEOPLE</span>
+                    <i>✦</i>
+
+                    <span>EMPOWERING LOCAL SKILLS</span>
+                    <i>✦</i>
+
+                    <span>MAKING EVERYDAY SERVICES SIMPLER</span>
+                    <i>✦</i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="wrap">
+
+            <div class="footer-top">
+
+                <div class="footer-brand">
+
+                    <div class="brand">
+                        <span class="brand-mark"></span>
+                        Sahayak
+                    </div>
+
+                    <p>
+                        A cooperative platform connecting neighbours
+                        with trusted local service providers.
+                    </p>
+
+                </div>
+
+
+                <div class="footer-col">
+
+                    <h4>Company</h4>
+
+                    <a href="#">About us</a>
+                    <a href="#">Terms &amp; conditions</a>
+                    <a href="#">Privacy policy</a>
+                    <a href="#">Careers</a>
+
+                </div>
+
+
+                <div class="footer-col">
+
+                    <h4>Customers</h4>
+
+                    <a href="#">Reviews</a>
+                    <a href="#">Categories near you</a>
+                    <a href="#">Help centre</a>
+
+                </div>
+
+
+                <div class="footer-col">
+
+                    <h4>Contact us</h4>
+
+                        <a href="#">hello@sahayak.com</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Facebook</a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <span>
+                    © 2026 Sahayak. All rights reserved.
+                </span>
+
+                <span>
+                    Designed and developed by
+                    <br>
+                    <div id="developer">
+                        Team 6Bits
+                    </div>
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script src="homepage.js"></script>
+    <script src="./static/search_ai.js"></script>
+
+</body>
+
+</html>

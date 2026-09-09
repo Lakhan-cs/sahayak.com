@@ -1,0 +1,5 @@
+const API_CONFIG = {
+  BASE_URL: "/api",
+  USE_MOCK_DATA: true,
+  REQUEST_TIMEOUT: 10000
+};

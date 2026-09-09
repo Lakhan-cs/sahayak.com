@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Sahayak - Payment and rating</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/frontend/navigation/completion.css" />
+    <link rel="stylesheet" href="/frontend/navigation/payment-rating.css" />
+  </head>
+  <body>
+    <div class="completion-shell">
+      <header class="completion-top">
+        <div class="completion-brand">
+          <span class="brand-mark"></span>Sahayak
+        </div>
+        <span class="completion-context"
+          >Customer space / Service complete</span
+        >
+      </header>
+      <main class="completion-wrap">
+        <section class="completion-intro">
+          <div class="success-mark">✓</div>
+          <span class="eyebrow">SERVICE COMPLETE</span>
+          <h1>All sorted. Take a moment to wrap up.</h1>
+          <p>
+            Your service is complete. Review the summary, choose a payment
+            method, and tell us how your experience went.
+          </p>
+        </section>
+        <section class="completion-grid">
+          <article class="completion-card">
+            <h2>Payment summary</h2>
+            <div class="job-summary">
+              <div class="summary-row">
+                <span>Service</span
+                ><strong id="serviceName">Home service</strong>
+              </div>
+              <div class="summary-row">
+                <span>Worker</span><strong id="workerName">Rahul Sharma</strong>
+              </div>
+              <div class="summary-row">
+                <span>Service total</span
+                ><strong id="serviceAmount">₹448</strong>
+              </div>
+              <div class="summary-row">
+                <span>Payment status</span
+                ><strong id="paymentStatus">Due after service</strong>
+              </div>
+            </div>
+            <div class="completion-form" style="margin-top: 20px">
+              <label for="paymentMethod"
+                >Payment method<select id="paymentMethod">
+                  <option>Cash after service</option>
+                  <option>UPI</option>
+                  <option>Card</option>
+                </select></label
+              ><button class="primary-action" id="payButton" type="button">
+                Confirm payment
+              </button>
+              <div
+                class="status-message"
+                id="paymentStatusMessage"
+                aria-live="polite"
+              ></div>
+            </div>
+          </article>
+          <article class="completion-card">
+            <h2>Rate your experience</h2>
+            <p
+              style="
+                color: var(--muted);
+                font-size: 12px;
+                line-height: 1.6;
+                margin-top: -8px;
+              "
+            >
+              Your feedback helps good local workers build trust.
+            </p>
+            <div
+              class="rating-stars"
+              id="ratingStars"
+              role="radiogroup"
+              aria-label="Rating"
+            >
+              <button type="button" data-rating="1" aria-label="1 star">
+                ★</button
+              ><button type="button" data-rating="2" aria-label="2 stars">
+                ★</button
+              ><button type="button" data-rating="3" aria-label="3 stars">
+                ★</button
+              ><button type="button" data-rating="4" aria-label="4 stars">
+                ★</button
+              ><button type="button" data-rating="5" aria-label="5 stars">
+                ★
+              </button>
+            </div>
+            <label class="feedback-label" for="feedback"
+              >A note for your worker
+              <textarea
+                id="feedback"
+                placeholder="What went well?"
+              ></textarea></label
+            ><button class="secondary-action" id="submitRating" type="button">
+              Submit rating
+            </button>
+            <div
+              class="status-message"
+              id="ratingStatus"
+              aria-live="polite"
+            ></div>
+          </article>
+        </section>
+      </main>
+    </div>
+    <script src="/frontend/navigation/payment-rating.js"></script>
+  </body>
+</html>

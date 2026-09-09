@@ -1,0 +1,366 @@
+/* =========================================================
+    SAHAYAK — AI SERVICE SEARCH
+========================================================= */
+
+.ai-search {
+  position: relative;
+  width: min(100%, 700px);
+  margin: 0 0 30px 0;
+  z-index: 10;
+
+  animation: searchAppear 0.7s ease-out both;
+}
+
+/* ---------------------------------------------------------
+   AI LABEL
+--------------------------------------------------------- */
+
+.ai-search-label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  margin-bottom: 10px;
+
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  color: #24143d;
+}
+
+.ai-search-label span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 14px;
+
+  color: #722cff;
+
+  animation: aiSpark 2s ease-in-out infinite;
+}
+
+/* ---------------------------------------------------------
+   SEARCH CONTAINER
+--------------------------------------------------------- */
+
+.ai-search-box {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  height: 58px;
+
+  padding: 5px;
+
+  border: 1px solid rgba(83, 45, 130, 0.18);
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.94);
+
+  box-shadow:
+    0 8px 25px rgba(67, 34, 110, 0.08),
+    0 2px 6px rgba(67, 34, 110, 0.05);
+
+  backdrop-filter: blur(10px);
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* ---------------------------------------------------------
+   SEARCH INPUT
+--------------------------------------------------------- */
+
+.ai-search-box input {
+  flex: 1;
+
+  width: 100%;
+  height: 100%;
+
+  min-width: 0;
+
+  padding: 0 16px;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+
+  color: #24143d;
+}
+
+.ai-search-box input::placeholder {
+  color: #91899c;
+  opacity: 1;
+}
+
+/* ---------------------------------------------------------
+   SEARCH BUTTON
+--------------------------------------------------------- */
+
+.ai-search-box button {
+  flex-shrink: 0;
+
+  height: 48px;
+
+  padding: 0 25px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: #111111;
+  color: #ffffff;
+
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+/* Hover */
+
+.ai-search-box button:hover {
+  transform: translateY(-1px);
+
+  background: #6d2ce9;
+
+  box-shadow: 0 7px 18px rgba(109, 44, 233, 0.28);
+}
+
+/* Click */
+
+.ai-search-box button:active {
+  transform: scale(0.97);
+}
+
+/* ---------------------------------------------------------
+   FOCUS EFFECT
+--------------------------------------------------------- */
+
+.ai-search-box:focus-within {
+  border-color: rgba(109, 44, 233, 0.55);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 30px rgba(109, 44, 233, 0.13),
+    0 0 0 4px rgba(109, 44, 233, 0.07);
+}
+
+/* ---------------------------------------------------------
+   RESULT
+--------------------------------------------------------- */
+
+#result {
+  width: 100%;
+  margin-top: 12px;
+
+  animation: resultAppear 0.35s ease-out both;
+}
+
+/* ---------------------------------------------------------
+   AI RESULT CARD
+--------------------------------------------------------- */
+
+.ai-result {
+  width: 100%;
+
+  padding: 16px 18px;
+
+  border: 1px solid rgba(83, 45, 130, 0.13);
+  border-radius: 13px;
+
+  background: rgba(255, 255, 255, 0.92);
+
+  box-shadow: 0 8px 22px rgba(67, 34, 110, 0.07);
+
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 13px;
+
+  color: #342846;
+
+  animation: resultAppear 0.35s ease-out both;
+}
+
+.ai-result h3 {
+  margin: 0 0 10px;
+
+  font-size: 15px;
+  font-weight: 800;
+
+  color: #24143d;
+}
+
+.ai-result p {
+  margin: 5px 0;
+
+  line-height: 1.5;
+}
+
+.ai-result strong {
+  color: #24143d;
+}
+
+.ai-result button {
+  margin-top: 11px;
+
+  padding: 9px 15px;
+
+  border: none;
+  border-radius: 9px;
+
+  background: #722cff;
+  color: white;
+
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.ai-result button:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 6px 14px rgba(114, 44, 255, 0.25);
+}
+
+/* ---------------------------------------------------------
+   LOADING STATE
+--------------------------------------------------------- */
+
+.ai-search-box button.loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* ---------------------------------------------------------
+   ANIMATIONS
+--------------------------------------------------------- */
+
+@keyframes searchAppear {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes aiSpark {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: scale(1.25) rotate(8deg);
+    opacity: 1;
+  }
+}
+
+@keyframes resultAppear {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------------------------------------------------------
+   TABLET
+--------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .ai-search {
+    width: min(100%, 520px);
+    margin-bottom: 25px;
+  }
+
+  .ai-search-box {
+    height: 55px;
+  }
+
+  .ai-search-box button {
+    height: 45px;
+    padding: 0 21px;
+  }
+}
+
+/* ---------------------------------------------------------
+   MOBILE
+--------------------------------------------------------- */
+
+@media (max-width: 600px) {
+  .ai-search {
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .ai-search-label {
+    font-size: 11px;
+    letter-spacing: 0.09em;
+  }
+
+  .ai-search-box {
+    height: 52px;
+    padding: 4px;
+    border-radius: 13px;
+  }
+
+  .ai-search-box input {
+    padding: 0 12px;
+    font-size: 13px;
+  }
+
+  .ai-search-box button {
+    height: 44px;
+    padding: 0 17px;
+    border-radius: 10px;
+    font-size: 12px;
+  }
+}
+
+/* ---------------------------------------------------------
+   VERY SMALL MOBILE
+--------------------------------------------------------- */
+
+@media (max-width: 380px) {
+  .ai-search-box input {
+    font-size: 12px;
+  }
+
+  .ai-search-box button {
+    padding: 0 13px;
+  }
+}

@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reset password — Sahayak</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="homepage.css" />
+    <link rel="stylesheet" href="auth.css" />
+  </head>
+  <body>
+    <div class="auth-nav">
+      <a class="brand" href="index.html"
+        ><span class="brand-mark"></span>Sahayak</a
+      >
+      <a class="auth-back" href="login.html">
+        <svg
+          width="15"
+          height="15"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.4"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M19 12H5M11 18l-6-6 6-6" />
+        </svg>
+        Back to log in
+      </a>
+    </div>
+
+    <div class="auth-shell">
+      <div class="auth-brand">
+        <div class="auth-brand-top">
+          <div class="brand"><span class="brand-mark"></span>Sahayak</div>
+          <p class="auth-quote">
+            Locked out happens. Let's get you <em>back in</em> safely.
+          </p>
+
+          <div class="auth-cards">
+            <div
+              class="auth-mini-card auth-mini-a"
+              style="
+                background-image:
+                  linear-gradient(
+                    180deg,
+                    rgba(27, 18, 48, 0.05) 40%,
+                    rgba(27, 18, 48, 0.8) 100%
+                  ),
+                  url(&quot;https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&h=320&fit=crop&quot;);
+              "
+            >
+              <span>Home cleaning</span>
+            </div>
+            <div
+              class="auth-mini-card auth-mini-b"
+              style="
+                background-image:
+                  linear-gradient(
+                    180deg,
+                    rgba(27, 18, 48, 0.02) 40%,
+                    rgba(27, 18, 48, 0.7) 100%
+                  ),
+                  url(&quot;https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=400&h=320&fit=crop&quot;);
+              "
+            >
+              <span>Electrical work</span>
+            </div>
+            <div
+              class="auth-mini-card auth-mini-c"
+              style="
+                background-image:
+                  linear-gradient(
+                    180deg,
+                    rgba(27, 18, 48, 0.05) 40%,
+                    rgba(27, 18, 48, 0.8) 100%
+                  ),
+                  url(&quot;https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&h=320&fit=crop&quot;);
+              "
+            >
+              <span>Gardening</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="auth-stats">
+          <div><strong>500,000+</strong><span>homes that trust us</span></div>
+          <div><strong>10,000+</strong><span>professional workers</span></div>
+        </div>
+      </div>
+
+      <div class="auth-form-panel">
+        <div class="auth-form-card">
+          <!-- STEP 1 — identify via email or phone -->
+          <div class="step active" id="stepIdentify">
+            <span class="eyebrow">Reset password</span>
+            <h1>Forgot your password?</h1>
+            <p>No worries — we'll send a 6-digit code to verify it's you.</p>
+
+            <div class="role-toggle">
+              <button
+                type="button"
+                class="method-btn active"
+                data-method="email"
+              >
+                Email
+              </button>
+              <button type="button" class="method-btn" data-method="phone">
+                Phone number
+              </button>
+            </div>
+
+            <form id="identifyForm">
+              <div class="field" id="identifyEmailField">
+                <label for="resetEmail">Email address</label>
+                <div class="field-input">
+                  <svg
+                    width="17"
+                    height="17"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                    <path d="m2 7 10 6 10-6" />
+                  </svg>
+                  <input
+                    type="email"
+                    id="resetEmail"
+                    placeholder="you@example.com"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="field" id="identifyPhoneField" hidden>
+                <label for="resetPhone">Phone number</label>
+                <div class="field-input">
+                  <svg
+                    width="17"
+                    height="17"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.7a2 2 0 0 1-.4 2.1L8.1 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"
+                    />
+                  </svg>
+                  <input
+                    type="tel"
+                    id="resetPhone"
+                    placeholder="+91 98765 43210"
+                  />
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block">
+                Send OTP
+              </button>
+            </form>
+
+            <p>Remember your password? <a href="login.html">Log in</a></p>
+          </div>
+
+          <!-- STEP 2 — enter OTP -->
+          <div class="step" id="stepOtp">
+            <button type="button" class="step-back" id="otpBack">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M19 12H5M11 18l-6-6 6-6" />
+              </svg>
+              Change email / phone
+            </button>
+
+            <span class="eyebrow">Verify OTP</span>
+            <h1>Enter the code</h1>
+            <p class="otp-sent-to" id="otpSentTo">
+              We've sent a 6-digit code to <strong>your email</strong>.
+            </p>
+
+            <form id="otpForm">
+              <div class="otp-group">
+                <input
+                  class="otp-box"
+                  type="text"
+                  inputmode="numeric"
+                  maxlength="1"
+                  required
+                />
+                <input
+                  class="otp-box"
+                  type="text"
+                  inputmode="numeric"
+                  maxlength="1"
+                  required
+                />
+                <input
+                  class="otp-box"
+                  type="text"
+                  inputmode="numeric"
+                  maxlength="1"
+                  required
+                />
+                <input
+                  class="otp-box"
+                  type="text"
+                  inputmode="numeric"
+                  maxlength="1"
+                  required
+                />
+                <input
+                  class="otp-box"
+                  type="text"
+                  inputmode="numeric"
+                  maxlength="1"
+                  required
+                />
+                <input
+                  class="otp-box"
+                  type="text"
+                  inputmode="numeric"
+                  maxlength="1"
+                  required
+                />
+              </div>
+
+              <div class="resend-row">
+                <span id="resendTimerWrap"
+                  >Didn't get the code? Resend in
+                  <strong><span id="resendTimer">0:30</span></strong></span
+                >
+                <button type="button" class="resend-btn" id="resendBtn" hidden>
+                  Resend OTP
+                </button>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block">
+                Verify OTP
+              </button>
+            </form>
+          </div>
+
+          <!-- STEP 3 — set new password -->
+          <div class="step" id="stepReset">
+            <span class="eyebrow">New password</span>
+            <h1>Set a new password</h1>
+            <p>Make sure it's at least 8 characters long.</p>
+
+            <form id="resetForm">
+              <div class="field">
+                <label for="newPassword">New password</label>
+                <div class="field-input">
+                  <svg
+                    width="17"
+                    height="17"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect x="4" y="10" width="16" height="10" rx="2" />
+                    <path d="M8 10V7a4 4 0 0 1 8 0v3" />
+                  </svg>
+                  <input
+                    type="password"
+                    id="newPassword"
+                    placeholder="Create a new password"
+                    minlength="8"
+                    required
+                  />
+                  <button
+                    type="button"
+                    class="pw-toggle"
+                    aria-label="Show password"
+                  >
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"
+                      />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="confirmPassword">Confirm password</label>
+                <div class="field-input">
+                  <svg
+                    width="17"
+                    height="17"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect x="4" y="10" width="16" height="10" rx="2" />
+                    <path d="M8 10V7a4 4 0 0 1 8 0v3" />
+                  </svg>
+                  <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Re-enter new password"
+                    minlength="8"
+                    required
+                  />
+                  <button
+                    type="button"
+                    class="pw-toggle"
+                    aria-label="Show password"
+                  >
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"
+                      />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block">
+                Reset password
+              </button>
+            </form>
+          </div>
+
+          <!-- STEP 4 — success -->
+          <div class="step step-success-body" id="stepSuccess">
+            <div class="success-icon">
+              <svg
+                width="30"
+                height="30"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+            </div>
+            <h1>Password reset!</h1>
+            <p>
+              Your password has been updated successfully. You can now log in
+              with your new password.
+            </p>
+            <a class="btn btn-primary btn-block" href="login.html"
+              >Continue to log in</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="auth.js"></script>
+  </body>
+</html>
