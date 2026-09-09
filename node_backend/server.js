@@ -2,7 +2,7 @@ require("dotenv").config({ path: require("path").resolve(__dirname, ".env") });
 const http = require("http");
 const app = require("./app");
 const connectDB = require("./config/dbconnect");
-const setupMessaging = require("../backend/messaging");
+const setupMessaging = require("./messaging");
 
 const port = Number(process.env.PORT || 3001);
 const httpServer = http.createServer(app);
